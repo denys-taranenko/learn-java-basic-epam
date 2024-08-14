@@ -1,9 +1,10 @@
 package com.epam.java.basics.module1.task1;
 
 import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class HelloAutocodeTest {
 
@@ -19,7 +20,9 @@ class HelloAutocodeTest {
             HelloAutocode.main(new String[]{});
             controlledOut.flush();
             final String actual = sink.toString().trim();
-            assertEquals("Hello, Autocode!", actual, "Your program must print \"Hello, Autocode!\" but printed \"" + actual + "\" instead.");
+            assertEquals("Hello, Autocode!", actual,
+                    "Your program must print \"Hello, Autocode!\" but printed \""
+                            + actual + "\" instead.");
         } finally {
             System.setOut(defaultOut);
         }
