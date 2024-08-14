@@ -11,3 +11,21 @@
       </details>
   </ul>
 </details>
+
+<details>
+  <summary>Data Types</summary>
+  <ul>
+      <details>
+        <summary>Electronic Watch</summary>
+        <p>
+          Please, proceed to <code>ElectronicWatch</code> class.
+          The program must print an electronic watch screen output for a given value of seconds since midnight.<br>
+          Input value is given via <code>System.in</code>.
+          Output value must be printed to <code>System.out</code>.<br>
+          It is guaranteed, that input number is non-negative.<br>
+          Output format is <code>h:mm:ss</code> (possible values: [0:00:00; 23:59:59]).<br>
+          <i>Extra challenge</i>: try to solve the task without using <code>if</code> statements or cycles.
+        </p>
+      </details>
+  </ul>
+</details>
