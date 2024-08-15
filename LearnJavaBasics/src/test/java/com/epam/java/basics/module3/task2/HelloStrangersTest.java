@@ -14,18 +14,26 @@ import static com.github.stefanbirkner.systemlambda.SystemLambda.withTextFromSys
 import static org.junit.jupiter.api.Assertions.*;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-class HelloStrangersTest {
+public class HelloStrangersTest {
 
-    private String runMain(String...lines) throws Exception {
+    private String runMain(String... lines) throws Exception {
         return tapSystemOutNormalized(() ->
                 withTextFromSystemIn(lines)
-                        .execute(() -> HelloStrangers.main(new String[]{}))).strip();
+                        .execute(() -> HelloStrangers.main(new String[]{})))
+                .strip();
+    }
+
+    @Test
+    @DisplayName("Test for zero input")
+    void zeroInputTest() throws Exception {
+        String actual = runMain("0");
+        assertEquals("Oh, it looks like there is no one here", actual);
     }
 
     @Test
     @DisplayName("Test for negative input")
-    void zeroInputTest() throws Exception {
-        String actual = runMain("0");
+    void negInputTest() throws Exception {
+        String actual = runMain("-1").strip();
         assertEquals("Seriously? Why so negative?", actual);
     }
 
@@ -33,12 +41,14 @@ class HelloStrangersTest {
     @DisplayName("Test for regular and random cases")
     @MethodSource({"regularCases", "randomNames"})
     void anyNamesTest(List<String> namesList) throws Exception {
-        String expected = namesList.stream().map(name -> "Hello, " + name)
+
+        String expected = namesList.stream()
+                .map(name -> "Hello, " + name)
                 .collect(Collectors.joining("\n"));
 
         String[] inputLines = Stream.concat(
-                 Stream.of(Integer.toString(namesList.size())),
-                 namesList.stream())
+                        Stream.of(Integer.toString(namesList.size())),
+                        namesList.stream())
                 .toArray(String[]::new);
 
         String actual = runMain(inputLines).strip();

@@ -154,3 +154,83 @@ This document contains descriptions of various problems for practicing Java prog
 </details>
 
 ---
+
+## Arrays
+
+### Max method
+<details>
+  <summary>Task</summary>
+  <p>
+    Please, proceed to the <code>MaxMethod</code> class and implement the <code>max</code> method.<br>
+    The correct implementation should receive an array of <code>int</code> values and return its maximum value.<br>
+    Details:<br>
+    <ul>
+      <li>An input array is guaranteed to not be an empty array or <code>null</code>.</li>
+      <li><code>max</code> method must not modify the array.</li>
+      <li>Input array may contain any <code>int</code> value between <code>Integer.MIN_VALUE</code> and <code>Integer.MAX_VALUE</code>.</li>
+    </ul>
+</details>
+
+### Sum of even numbers
+<details>
+  <summary>Task</summary>
+  <p>
+    Please, proceed to the <code>SumOfEvenNumbers</code> class and implement the <code>sum</code> method.<br>
+    The correct implementation should receive an array of <code>int</code> values and return the sum of even numbers.<br>
+    Details:<br>
+    <ul>
+      <li>If given array is null or empty, method returns 0.</li>
+      <li><code>sum</code> method must not modify the array.</li>
+      <li>Input array may contain any <code>int</code> value between <code>Integer.MIN_VALUE</code> and <code>Integer.MAX_VALUE</code>.</li>
+    </ul>
+</details>
+
+### Sum of previous
+<details>
+  <summary>Task</summary>
+  <p>
+    Please, proceed to <code>SumOfPrevious</code> class and implement <code>getSumCheckArray</code> method.<br>
+    The correct implementation should receive an array of <code>int</code> values and return an array of booleans where each element is a result of a check if a corresponding element is a sum of two previous elements in given array.<br>
+    Details:<br>
+    <ul>
+      <li>The length of given array is guaranteed to be 2 or more.</li>
+      <li>Given array is guaranteed to be not null.</li>
+      <li>Method returns an array of booleans where each element is a result for corresponding element in given array.</li>
+      <li>First two elements of the boolean array are always false.</li>
+    </ul>
+</details>
+
+### Local maxima remove
+<details>
+  <summary>Task</summary>
+  <p>
+    Please, proceed to the LocalMaximaRemove class and implement the <code>removeLocalMaxima</code> method.<br>
+    The correct implementation should receive an array of <code>int</code> values and return a copy of a given array with all local maxima removed in it. The original array must not be changed.<br>
+    <strong>Local maximum</strong> is an element that is bigger that any of its neighbour elements. You should remove elements that are local maxima in the original array.
+    Details:<br>
+    <ul>
+      <li>The size of given array is guaranteed to be more than 1.</li>
+      <li>Given array is guaranteed to be not null.</li>
+      <li>If the array has no local maxima, then you should return its copy without changes.</li>
+      <li>You may use <code>java.util.Arrays.*</code> methods.</li>
+    </ul>
+</details>
+
+### Cycle Swap
+<details>
+  <summary>Task</summary>
+  <p>
+    Please, proceed to <code>CycleSwap</code> class and implement its static methods:<br>
+    <ul>
+      <li><code>void cycleSwap(int[] array)</code><br>
+           Shifts all the elements in the given array in the right direction by 1 position.<br>
+           In this case, the last array element becomes first.<br>
+           For example, <code>1 3 2 7 4</code> becomes <code>4 1 3 2 7</code>.<br>
+      </li>
+      <li><code>void cycleSwap(int[] array, int shift)</code><br>
+          Shift all the elements in the given array in the right direction in the cycle manner by <code>shift</code> positions.<br>
+          Shift value is guaranteed to be non-negative and not bigger than the array length.<br>
+          For example, <code>1 3 2 7 4</code> with a shift of 3 becomes <code>2 7 4 1 3</code>.<br>
+      </li>
+    </ul>
+</details>
