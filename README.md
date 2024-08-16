@@ -234,3 +234,39 @@ This document contains descriptions of various problems for practicing Java prog
       </li>
     </ul>
 </details>
+
+### Spiral
+<details>
+  <summary>Task</summary>
+  <p>
+    Please, proceed to <code>Spiral</code> class and implement its static method:<br>
+    <ul>
+      <li><code>int[][] spiral(int rows, int columns)</code><br>
+           Return a two-dimensional array coming in the form of a table and containing numbers from 1 up to <code>rows * cols</code>. The size of the table will be specified by the given parameters.<br>
+           Numbers fill the "table" clockwise from the top-level corner in a spiral manner.<br>
+           For example, for parameter values <code>(3, 4)</code> , the output array should be:<br>
+           <code>1  2  3  4</code><br>
+           <code>10 11 12 5</code><br>
+           <code>9  8  7  6</code><br>
+      </li>
+    </ul>
+</details>
+
+### Matrix Transposition
+<details>
+  <summary>Task</summary>
+  <p>
+    Please, proceed to <code>TransposeMatrix</code> class an implement its method <code>multiply</code>.<br>
+    It takes a rectangular integer array (matrix) as a parameter and returns it transposed.<br>
+    Consider an integer matrix represented as a <strong>rectangular array</strong>. The task is to <strong>transpose</strong> a given matrix over its main diagonal. The <strong>transposition</strong> of a matrix over its main diagonal is simply a flipped version of the original matrix.
+</details>
+
+### Matrices Multiplication
+<details>
+  <summary>Task</summary>
+  <p>
+    Please, proceed to <code>MultiplyMatrix</code> class and implement its <code>multiply</code> method.<br>
+    It takes two rectangular integer arrays (matrices) and returns the result of their multiplication.<br>
+    Consider two integer matrices represented as <strong>rectangular arrays</strong>. The task is to <strong>multiply</strong> given matrices. The definition of <strong>matrix multiplication</strong> indicates a row-by-column multiplication, where the entries in the <strong>i-th</strong> row of <i>A</i> are multiplied by the corresponding entries in the <strong>j-th</strong> column of <i>B</i> and then the <strong>ij-th</strong> element of the resulting matrix is the sum of that multiplication results.<br>
+    Note that it is guaranteed that the number of columns in the first matrix is equal to the number of rows in the second matrix.<br>
+</details>
