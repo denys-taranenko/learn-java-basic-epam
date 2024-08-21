@@ -270,3 +270,92 @@ This document contains descriptions of various problems for practicing Java prog
     Consider two integer matrices represented as <strong>rectangular arrays</strong>. The task is to <strong>multiply</strong> given matrices. The definition of <strong>matrix multiplication</strong> indicates a row-by-column multiplication, where the entries in the <strong>i-th</strong> row of <i>A</i> are multiplied by the corresponding entries in the <strong>j-th</strong> column of <i>B</i> and then the <strong>ij-th</strong> element of the resulting matrix is the sum of that multiplication results.<br>
     Note that it is guaranteed that the number of columns in the first matrix is equal to the number of rows in the second matrix.<br>
 </details>
+
+---
+
+## Classes
+
+### Line Intersection
+<details>
+  <summary>Task</summary>
+  <p>
+    Please, implement the method <code>intersection(Line)</code> in class <code>Line</code>. It must return a <code>Point</code> of intersection of two lines.<br>
+    Note that lines are defined by linear equations: <code>y = k * x + b</code>. Line constructor takes <code>k</code> and <code>b</code> coefficients as parameters.<br>
+    If lines coincide or do not intersect, the method must return null. It may seem surprising that we use <code>int</code> for arguments and fields of coordinates. The point is that using <code>double</code> will bring some extra complexity we want to avoid for this basic exercise. All tests are selected in to induce calculations without remainders.<br>
+    You may check your result in class <code>Main</code>.
+</details>
+
+### Segments
+<details>
+  <summary>Task</summary>
+  <p>
+    Please, implement the following methods of class <code>Segment</code>:<br>
+    <ul>
+      <li>Constructor with start and end points as parameters<br>
+          Ensure that a created segment exists and is not degenerative which means that the start and the end of the segment is not the same point.<br>
+          If it is, use <code>throw new IllegalArgumentException()</code> to raise an error.</li>
+      <li><code>double length()</code><br>
+          Return length of the segment.</li>
+      <li><code>Point middle()</code><br>
+          Return a middle point of the segment.</li>
+      <li><code>Point intersection(Segment another)</code><br>
+          Return a point of the intersection of the current segment and the given one.<br>
+          Return <code>null</code> if there is no such point.<br>
+          Return <code>null</code> if segments are collinear.<br>
+          Please, note that intersection point must lay on both segments.</li>
+    </ul>
+    Class <code>Point</code> is already there.
+    Hints:
+    <ul>
+      <li><a href="https://www.wikihow.com/Use-Distance-Formula-to-Find-the-Length-of-a-Line">Length reference</a></li>
+      <li><a href="https://www.wikihow.com/Find-the-Midpoint-of-a-Line-Segment#Use-the-Midpoint-Formula">Midpoint reference</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Line%E2%80%93line_intersection">Intersection reference</a></li>
+    </ul>
+</details>
+
+### Triangle
+<details>
+  <summary>Task</summary>
+  <p>
+    Please, implement methods of class <code>Triangle</code>:<br>
+    <ul>
+      <li>Constructor, which has three points as parameters.<br>
+          Make sure that these points refer to vertices of the triangle.<br>
+          Ensure that the created triangle exists and it is not degenerative.<br>
+          If it is, use <code>throw new IllegalArgumentException()</code> to raise an error.</li>
+      <li><code>double area()</code><br>
+          Return the area of the triangle.</li>
+      <li><code>Point centroid()</code><br>
+          Return the centroid of the triangle.</li>
+    </ul>
+    Class <code>Point</code> is already there.
+    Hints:
+    <ul>
+      <li><a href="https://en.wikipedia.org/wiki/Triangle#Existence_of_a_triangle">Triangle existence reference</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Triangle#Existence_of_a_triangle">Triangle area reference</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Centroid">Centroid reference</a></li>
+    </ul>
+    Please note that you may benefit from introducing more classes.
+</details>
+
+### Decrementing Carousel
+<details>
+  <summary>Task</summary>
+  <p>
+    <code>Decrementing Carousel</code> is a container, accepting <code>int</code> elements. <code>DecrementingCarousel</code> has a maximum capacity, specified via the constructor. When created, <code>DecrementingCarousel</code> is in accumulating state: you may add elements via the <code>addElement</code> method and can produce a <code>CarouselRun</code> object via the <code>run</code> method. Once the <code>run</code> method is called, <code>DecrementingCarousel</code> is in running state: it refuses adding more elements.<br>
+          The <code>CarouselRun</code> allows to iterate over elements of the carousel decrementing them one by one with the <code>next</code> method. The <code>next</code> returns the value of the current element. Then it decreases the current element by one and switches to the next element.<br>
+          The <code>CarouselRun</code> iterates over elements in the order of their insertion.<br>
+          When an element is decreased to zero, the <code>CarouselRun</code> will skip it in further iterations. When there are no more elements available for decrementing, the <code>CarouselRun</code> returns <code>-1</code>.
+          The <code>CarouselRun</code> also has the <code>isFinished</code> method, which indicates, if the carousel has run out of the elements to decrement.<br>
+          <strong>Specification Details</strong><br>
+          <code>DecrementingCarousel</code> has two public methods:
+    <ul>
+      <li><code>boolean addElement(int element)</code> - adds an element. If element is negative or zero, do not add the element. If container is full, do not add the element. If the <code>run</code> method was called to create a <code>CarouselRun</code>, do not add the element. If element is added successfully, return <code>true</code>. Return <code>false</code> otherwise.</li>
+      <li><code>CarouselRun run()</code> - returns a <code>CarouselRun</code> to iterate over the elements. If the <code>run</code> method has already been called earlier, it must return <code>null</code>: <code>DecrementingCarousel</code> may generate only one <code>CarouselRun</code> object.</li>
+    </ul>
+          <code>CarouselRun</code> has two public methods:
+    <ul>
+      <li><code>int next()</code> - returns the current value of the current element, then decreases the current element by one and switches to the next element in insertion order. Skips zero elements. When there is no more elements to decrease, returns <code>-1</code>.</li>
+      <li><code>boolean isFinished()</code> - when there is no more elements to decrease, returns <code>true</code>. Otherwise, returns <code>false</code>.</li>
+    </ul>
+</details>
