@@ -1,68 +1,58 @@
 package com.epam.java.basics.module5.task2;
 
-import static java.lang.Math.abs;
 import static java.lang.Math.sqrt;
+import static java.lang.StrictMath.min;
+import static java.lang.StrictMath.max;
 import static java.lang.StrictMath.pow;
-
 
 class Segment {
     private final Point start;
     private final Point end;
 
     public Segment(Point start, Point end) {
-        if (start.getX() == end.getX() && start.getY() == end.getY()) {
-            throw new IllegalArgumentException();
-        }
-
         this.start = start;
         this.end = end;
+
+        if (start.x() == end.x() && start.y() == end.y()) {
+            throw new IllegalArgumentException();
+        }
     }
 
     double length() {
-        return sqrt(pow(end.getX() - start.getX(), 2) + pow(end.getY() - start.getY(), 2));
+        return sqrt(pow(end.x() - start.x(), 2) + pow(end.y() - start.y(), 2));
     }
 
     Point middle() {
-        double middleX = (start.getX() + end.getX()) / 2;
-        double middleY = (start.getY() + end.getY()) / 2;
+        double xMidPoint = (start.x() + end.x()) / 2;
+        double yMidPoint = (start.y() + end.y()) / 2;
 
-        return new Point(middleX,middleY);
+        return new Point(xMidPoint,yMidPoint);
     }
 
     Point intersection(Segment another) {
-        double x1 = start.getX(), y1 = start.getY();
-        double x2 = end.getX(), y2 = end.getY();
-        double x3 = another.start.getX(), y3 = another.start.getY();
-        double x4 = another.end.getX(), y4 = another.end.getY();
+        double x1 = start.x(), y1 = start.y();
+        double x2 = end.x(), y2 = end.y();
+        double x3 = another.start.x(), y3 = another.start.y();
+        double x4 = another.end.x(), y4 = another.end.y();
 
-        double A1 = y2 - y1;
-        double B1 = x1 - x2;
-        double C1 = A1 * x1 + B1 * y1;
+        double determinants = (((x1 - x2) * (y3 - y4)) - ((y1 - y2) * (x3 - x4)));
 
-        double A2 = y4 - y3;
-        double B2 = x3 - x4;
-        double C2 = A2 * x3 + B2 * y3;
-
-        double det = A1 * B2 - A2 * B1;
-
-        if (abs(det) < 1e-10) {
+        if (determinants == 0) {
             return null;
         }
 
-        double intersectX = (B2 * C1 - B1 * C2) / det;
-        double intersectY = (A1 * C2 - A2 * C1) / det;
-        Point intersectionPoint = new Point(intersectX, intersectY);
+        double xIntersection = ((((x1 * y2) - (y1 * x2)) * (x3 - x4)) - ((x1 - x2) * ((x3 * y4) - (y3 * x4))))
+                / determinants;
+        double yIntersection = ((((x1 * y2) - (y1 * x2)) * (y3 - y4)) - ((y1 - y2) * ((x3 * y4) - (y3 * x4))))
+                / determinants;
 
+        boolean firstSegment = (min(x1,x2) <= xIntersection && xIntersection <= max(x1,x2)
+                && min(y1,y2) <= yIntersection && yIntersection <= max(y1,y2));
+        boolean secondSegment = (min(x3,x4) <= xIntersection && xIntersection <= max(x3,x4)
+                && min(y3,y4) <= yIntersection && yIntersection <= max(y3,y4));
 
-        boolean onFirstSegment = (Math.min(start.getX(), end.getX()) <= intersectX && intersectX <= Math.max(start.getX(), end.getX()))
-                && (Math.min(start.getY(), end.getY()) <= intersectY && intersectY <= Math.max(start.getY(), end.getY()));
-
-        boolean onSecondSegment = (Math.min(x3, x4) <= intersectX && intersectX <= Math.max(x3, x4))
-                && (Math.min(y3, y4) <= intersectY && intersectY <= Math.max(y3, y4));
-
-
-        if (onFirstSegment && onSecondSegment) {
-            return intersectionPoint;
+        if (firstSegment && secondSegment) {
+            return new Point(xIntersection,yIntersection);
         } else {
             return null;
         }

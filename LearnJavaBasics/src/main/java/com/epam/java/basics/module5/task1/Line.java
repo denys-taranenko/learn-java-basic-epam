@@ -10,13 +10,13 @@ public class Line {
     }
 
     public Point intersection(Line other) {
-        if (this.k == other.k) {
+        if (k == other.k ) {
             return null;
         }
 
-        int x = (other.b - this.b) / (this.k - other.k);
-        int y = this.k * x + this.b;
+        int xIntersection = (other.b - b) / (k - other.k);
+        int yIntersection = (k * xIntersection) + b;
 
-        return new Point(x,y);
+        return new Point(xIntersection, yIntersection);
     }
 }

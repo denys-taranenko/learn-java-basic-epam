@@ -40,10 +40,9 @@ class SumOfEvenNumbersTest {
 
     @Test
     public void nullOrEmptyTest() {
-        int[] nullArray = null;
         int[] emptyArray = new int[0];
 
-        assertEquals(0, SumOfEvenNumbers.sum(nullArray));
+        assertEquals(0, SumOfEvenNumbers.sum(null));
         assertEquals(0, SumOfEvenNumbers.sum(emptyArray));
     }
 }

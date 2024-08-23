@@ -4,42 +4,36 @@ public class DecrementingCarousel {
     private final int[] elements;
     private final int capacity;
     private int currentIndex;
-    private boolean runCalled;
+    private boolean isRun;
 
     public DecrementingCarousel(int capacity) {
-        if (capacity <= 0) {
-            throw new IllegalArgumentException();
-        }
-
+        this.elements = new int[capacity];
         this.capacity = capacity;
-        elements = new int[capacity];
-        currentIndex = 0;
-        runCalled = false;
+        this.currentIndex = 0;
+        this.isRun = false;
     }
 
     public boolean addElement(int element) {
         if (element <= 0) {
             return false;
         }
-        if (runCalled) {
+        if (currentIndex >= capacity) {
             return false;
         }
-        if (currentIndex == capacity) {
+        if (isRun) {
             return false;
         }
-
         elements[currentIndex] = element;
         currentIndex++;
-
         return true;
     }
 
     public CarouselRun run() {
-        if (runCalled) {
+        if (isRun) {
             return null;
         }
 
-        runCalled = true;
+        isRun = true;
 
         return new CarouselRun(elements);
     }

@@ -13,7 +13,6 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-
 public class SegmentTest {
 
     @Test
@@ -41,7 +40,7 @@ public class SegmentTest {
     }
 
     @Test
-     void testConstructorNullEndCase() {
+    void testConstructorNullEndCase() {
         assertThrows(RuntimeException.class, () -> new Segment(new Point(3, 7), null));
     }
 
@@ -61,8 +60,8 @@ public class SegmentTest {
     @MethodSource("middleTestCases")
     void testMiddle(final Point expected, final Segment segment) {
         final Point actual = segment.middle();
-        assertEquals(expected.getX(), actual.getX(), 0.001);
-        assertEquals(expected.getY(), actual.getY(), 0.001);
+        assertEquals(expected.x(), actual.x(), 0.001);
+        assertEquals(expected.y(), actual.y(), 0.001);
     }
 
     @ParameterizedTest
@@ -74,8 +73,8 @@ public class SegmentTest {
             return;
         }
         assertNotNull(actual);
-        assertEquals(expected.getX(), actual.getX(), 0.001);
-        assertEquals(expected.getY(), actual.getY(), 0.001);
+        assertEquals(expected.x(), actual.x(), 0.001);
+        assertEquals(expected.y(), actual.y(), 0.001);
     }
 
     static Stream<Arguments> lengthTestCases() {
@@ -181,9 +180,8 @@ public class SegmentTest {
             return null;
         }
         return new StringJoiner(";", "(", ")")
-                .add(Double.toString(point.getX()))
-                .add(Double.toString(point.getY()))
+                .add(Double.toString(point.x()))
+                .add(Double.toString(point.y()))
                 .toString();
     }
-
 }

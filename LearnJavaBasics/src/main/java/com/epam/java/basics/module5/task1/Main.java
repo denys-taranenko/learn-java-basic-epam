@@ -10,10 +10,9 @@ public class Main {
         int k2 = scanner.nextInt();
         int b2 = scanner.nextInt();
 
-        Line line1 = new Line(k1, b1);
-        Line line2 = new Line(k2, b2);
+        Line line1 = new Line(k1,b1);
+        Line line2 = new Line(k2,b2);
 
         System.out.println("result is " + line1.intersection(line2));
-
     }
 }

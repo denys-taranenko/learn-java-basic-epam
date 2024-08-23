@@ -9,8 +9,8 @@ public class Main {
         {
             Point centroid = new Triangle(new Point(0, 0), new Point(3, 0), new Point(0, 3)).centroid();
 
-            System.out.println(centroid.getX());
-            System.out.println(centroid.getY());
+            System.out.println(centroid.x());
+            System.out.println(centroid.y());
         }
     }
 }

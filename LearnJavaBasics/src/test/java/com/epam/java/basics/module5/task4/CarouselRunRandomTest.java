@@ -20,7 +20,6 @@ import static org.junit.jupiter.params.provider.Arguments.arguments;
 
 class CarouselRunRandomTest {
 
-
     @ParameterizedTest(name = "[1] {0} {1}")
     @MethodSource({"fullCases", "halfEmptyCases", "overflowCases"})
     void testCarouselRunWhileNotFinished(String collection, int seed) {
@@ -133,7 +132,7 @@ class CarouselRunRandomTest {
         try {
             return Pattern.compile("\\D+").splitAsStream(
                             Files.readString(
-                                    Path.of("src", "test", "java", "com", "epam", "java", "basics", "module5", "task4", "resources", collection, seed + ".txt")))
+                                    Path.of("src", "test", "resources", collection, seed + ".txt")))
                     .filter(token -> !token.isBlank())
                     .map(Integer::parseInt)
                     .collect(Collectors.toList());

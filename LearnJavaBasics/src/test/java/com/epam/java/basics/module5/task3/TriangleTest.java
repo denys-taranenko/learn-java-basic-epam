@@ -11,7 +11,6 @@ import java.util.stream.Stream;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-
 class TriangleTest {
 
     @Test
@@ -74,8 +73,8 @@ class TriangleTest {
     @MethodSource
     void testCentroid(final double ax, final double ay, final double bx, final double by, final double cx, final double cy, final Point expected) {
         final Triangle t = t(ax, ay, bx, by, cx, cy);
-        assertEquals(expected.getX(), t.centroid().getX(), 0.0001, () -> "Error in centroid() on case (X) " + triangleToString(ax, ay, bx, by, cx, cy));
-        assertEquals(expected.getY(), t.centroid().getY(), 0.0001, () -> "Error in centroid() on case (Y) " + triangleToString(ax, ay, bx, by, cx, cy));
+        assertEquals(expected.x(), t.centroid().x(), 0.0001, () -> "Error in centroid() on case (X) " + triangleToString(ax, ay, bx, by, cx, cy));
+        assertEquals(expected.y(), t.centroid().y(), 0.0001, () -> "Error in centroid() on case (Y) " + triangleToString(ax, ay, bx, by, cx, cy));
     }
 
     static Stream<Arguments> testArea() {
@@ -132,5 +131,4 @@ class TriangleTest {
                         .toString())
                 .toString();
     }
-
 }

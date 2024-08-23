@@ -7,7 +7,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class CarouselRunTest {
 
-
     @Test
     void testEmptyCase() {
         CarouselRun run = new DecrementingCarousel(7).run();

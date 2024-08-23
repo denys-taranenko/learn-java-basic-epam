@@ -5,24 +5,26 @@ public class CarouselRun {
     private int currentIndex;
 
     public CarouselRun(int[] elements) {
-        this.elements = elements.clone();
+        this.elements = elements;
         this.currentIndex = 0;
     }
-
 
     public int next() {
         if (isFinished()) {
             return -1;
         }
-
         while (true) {
+            if (currentIndex >= elements.length) {
+                currentIndex = 0;
+            }
             if (elements[currentIndex] > 0) {
                 int currentValue = elements[currentIndex];
                 elements[currentIndex]--;
-                currentIndex = (currentIndex + 1) % elements.length;
+                currentIndex++;
                 return currentValue;
-            } else {
-                currentIndex = (currentIndex + 1) % elements.length;
+            }
+            if (elements[currentIndex] == 0) {
+                currentIndex++;
             }
         }
     }
