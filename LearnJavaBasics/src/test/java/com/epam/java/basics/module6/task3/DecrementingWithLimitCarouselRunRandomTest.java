@@ -1,5 +1,6 @@
-package com.epam.java.basics.module5.task4;
+package com.epam.java.basics.module6.task3;
 
+import com.epam.java.basics.module5.task4.CarouselRun;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -18,14 +19,16 @@ import java.util.stream.Stream;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.params.provider.Arguments.arguments;
 
-class CarouselRunRandomTest {
+class DecrementingWithLimitCarouselRunRandomTest {
+
+    private static final String variant = "limited";
 
     @ParameterizedTest(name = "[1] {0} {1}")
     @MethodSource({"fullCases", "halfEmptyCases", "overflowCases"})
     void testCarouselRunWhileNotFinished(String collection, int seed) {
         Random random = new Random(seed);
 
-        DecrementingCarousel carousel = generateCarousel(random, collection);
+        DecrementingCarouselWithLimitedRun carousel = generateCarousel(random, collection);
         CarouselRun run = carousel.run();
 
         List<Integer> runResult = new ArrayList<>();
@@ -49,7 +52,7 @@ class CarouselRunRandomTest {
     void testCarouselRunWhileNotNegative(String collection, int seed) {
         Random random = new Random(seed);
 
-        DecrementingCarousel carousel = generateCarousel(random, collection);
+        DecrementingCarouselWithLimitedRun carousel = generateCarousel(random, collection);
         CarouselRun run = carousel.run();
 
         List<Integer> runResult = new ArrayList<>();
@@ -99,9 +102,10 @@ class CarouselRunRandomTest {
                 .mapToObj(i -> arguments("over", i));
     }
 
-    private static DecrementingCarousel generateCarousel(final Random random, final String collection) {
+    private static DecrementingCarouselWithLimitedRun generateCarousel(final Random random, final String collection) {
         int elements = 10 + random.nextInt(10);
-        DecrementingCarousel carousel = new DecrementingCarousel(elements);
+        DecrementingCarouselWithLimitedRun carousel = new DecrementingCarouselWithLimitedRun(
+                elements, 25 + random.nextInt(51));
 
         if (collection.equals("half")) {
             elements -= (random.nextInt(7) + 1);
@@ -132,7 +136,7 @@ class CarouselRunRandomTest {
         try {
             return Pattern.compile("\\D+").splitAsStream(
                             Files.readString(
-                                    Path.of("src", "test", "resources", "decrementing", collection, seed + ".txt")))
+                                    Path.of("src", "test", "resources", variant, collection, seed + ".txt")))
                     .filter(token -> !token.isBlank())
                     .map(Integer::parseInt)
                     .collect(Collectors.toList());

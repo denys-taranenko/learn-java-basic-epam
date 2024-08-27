@@ -1,5 +1,7 @@
-package com.epam.java.basics.module5.task4;
+package com.epam.java.basics.module6.task3;
 
+import com.epam.java.basics.module5.task4.CarouselRun;
+import com.epam.java.basics.module5.task4.DecrementingCarousel;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -18,7 +20,9 @@ import java.util.stream.Stream;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.params.provider.Arguments.arguments;
 
-class CarouselRunRandomTest {
+class DecrementingCarouselRunRandomTest {
+
+    private static final String variant = "decrementing";
 
     @ParameterizedTest(name = "[1] {0} {1}")
     @MethodSource({"fullCases", "halfEmptyCases", "overflowCases"})
@@ -132,7 +136,7 @@ class CarouselRunRandomTest {
         try {
             return Pattern.compile("\\D+").splitAsStream(
                             Files.readString(
-                                    Path.of("src", "test", "resources", "decrementing", collection, seed + ".txt")))
+                                    Path.of("src", "test", "resources", variant, collection, seed + ".txt")))
                     .filter(token -> !token.isBlank())
                     .map(Integer::parseInt)
                     .collect(Collectors.toList());

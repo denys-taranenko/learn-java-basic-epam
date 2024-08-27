@@ -37,4 +37,12 @@ public class CarouselRun {
         }
         return true;
     }
+
+    public int getCurrentIndex() {
+        return currentIndex;
+    }
+
+    public void setCurrentIndex(int currentIndex) {
+        this.currentIndex = currentIndex;
+    }
 }

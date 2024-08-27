@@ -37,4 +37,16 @@ public class DecrementingCarousel {
 
         return new CarouselRun(elements);
     }
+
+    public int[] getElements() {
+        return elements;
+    }
+
+    public boolean isRun() {
+        return isRun;
+    }
+
+    public void setRun(boolean run) {
+        isRun = run;
+    }
 }
