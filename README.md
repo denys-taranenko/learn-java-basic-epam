@@ -387,3 +387,60 @@ This document contains descriptions of various problems for practicing Java prog
     Note, that if you have not done the "Decrementing Carousel" exercise, you have to implement <code>DecrementingCarousel</code> and <code>CarouselRun</code> classes.<br>
     In this exercise you need to extend <code>DecrementingCarousel</code>. You need to implement <code>DecrementingCarouselWithLimitedRun</code>. This subclass must decrement elements as a usual DecrementingCarousel. The difference is that this implementation must produce a carousel run, which limits number of calls to the <code>next</code> method. When the limit of calls reached carousel run must consider itself finished.
 </details>
+
+### SprintPlanning
+<details>
+  <summary>Task</summary>
+  <p>
+    In this exercise we are going to manage business logic of planning a sprint. A sprint is the basic unit of software development in SCRUM. Sprints are time boxed. Time capacity of a sprint is agreed while planning. Then we consider a sprint to be filled with some tasks.<br>
+    We consider a task to be implemented with general-purpose <code>Ticket</code> class. But we also consider a sprint to accept only subtypes of the <code>Ticket</code> class: <code>Bug</code> and <code>UserStory</code>.<br>
+    Here are API details:<br>
+    <ul>
+    <li><strong>Ticket</strong><br></li>
+    Every ticket has an id, a name and an estimate of hours to complete it. One provides them via the constructor of the <code>Ticket</code> class. Also, a ticket may be completed or not. When a ticket is created, it is not completed.
+        <ul>
+            <li><code>getId()</code> - Returns the id of the ticket.</li>
+            <li><code>getName()</code> - Returns the name of the ticket.</li>
+            <li><code>getEstimate()</code> - Returns the estimate of the ticket.</li>
+            <li><code>isCompleted()</code> - Returns <code>true</code> if the ticket is completed, <code>false</code> otherwise.</li>
+            <li><code>getId()</code> - Returns the id of the ticket.</li>
+            <li><code>complete()</code> - Sets the ticket to completed state.</li>
+        </ul>
+    </ul>
+    <ul>
+    <li><strong>UserStory</strong><br></li>
+    We consider a user story to be a ticket that may contain some dependencies. A dependency is another user story that must be completed first to allow the dependent user story to complete. One provides dependencies of the UserStory via the constructor of the <code>UserStory</code> class.
+        <ul>
+            <li><code>complete()</code> - Like the <code>Ticket#complete()</code> method, this sets the ticket to completed state. The difference is that the user story may not be completed if its dependencies are not completed yet.</li>
+            <li><code>getDependencies()</code> - Returns a defensive copy of dependencies array.</li>
+            <li><code>toString()</code> - Returns a String representing this user story, using its id and name. Example: "[US 1] User Registration Entity"</li>
+        </ul>
+    </ul>
+    <ul>
+    <li><strong>Bug</strong><br></li>
+    We consider a bug to be a ticket, that is related to some completed user story. Bugs may not exist by their on, without a related user story.
+        <ul>
+            <li><code>createBug(int id, String name, int estimate, UserStory userStory)</code> - A static method to create a Bug instance.<br>
+                Returns null if the related user story is null or is not completed. Otherwise, returns a created Bug instance.</li>
+            <li><code>toString()</code> - Returns a String representing this bug, using its id, name and the name of the related user story.<br>
+                Example: with id = 2, name = "Add password repeat" and the related user story name = "Registration Form" the resulting string would be "[Bug 2] Registration Form: Add password repeat"</li>
+        </ul>
+    </ul>
+    <ul>
+    <li><strong>Sprint</strong><br></li>
+    Sprints has the time capacity and the tickets limit, specified via constructor. It is not allowed for a Sprint to contain tickets with total estimate greater than time capacity. It is not allowed for a Sprint to contain total amount of tickets greater than tickets limit.<br>
+    We consider a sprint to accept tickets via <code>add*</code> methods. That methods return <code>true</code> when an input ticket was accepted and <code>false</code> otherwise. Note that we consider a sprint to not accept:<br>
+    1. <code>null</code> values.<br>
+    2. tickets, that are already completed.<br>
+    3. tickets, that has an estimate value that will lead to capacity overflow if added.<br>
+    4. any ticket, if the sprint ticket limit is reached.<br>
+        <ul>
+            <li><code>addUserStory(UserStory userStory)</code> - accepts a userStory, if it is not <code>null</code>, not completed and its uncompleted dependencies are already accepted to the sprint.<br>
+            Returns <code>true</code> if the user story is accepted, <code>false</code> otherwise.</li>
+            <li><code>addBug(Bug bugReport)</code> - accepts a bug, if it is not <code>null</code> and not completed. Returns <code>true</code> if the bug is accepted, <code>false</code> otherwise.</li>
+            <li><code>getTickets()</code> - Returns a defensive copy of the array of the sprint tickets. Make sure the order of tickets is as they were accepted to the sprint.</li>
+            <li><code>getTotalEstimate()</code> - Returns the sum of estimates of all the tickets accepted to the sprint.</li>
+        </ul>
+    </ul>
+    <strong>Important restriction:</strong> Note that in this exercise you <strong>may not</strong> use <em>Collections</em> and <em>Streams</em>.
+</details>
