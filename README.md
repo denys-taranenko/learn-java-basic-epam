@@ -396,7 +396,7 @@ This document contains descriptions of various problems for practicing Java prog
     We consider a task to be implemented with general-purpose <code>Ticket</code> class. But we also consider a sprint to accept only subtypes of the <code>Ticket</code> class: <code>Bug</code> and <code>UserStory</code>.<br>
     Here is a diagram depicting the public interface of these classes and their relations:<br>
 
-![Diagram](https://raw.githubusercontent.com/denys-taranenko/learn-java-basic-epam/main/LearnJavaBasics/src/test/resources/images/sprintDiagram.png)
+![Diagram](https://raw.githubusercontent.com/denys-taranenko/learn-java-basic-epam/main/sprintDiagram.png)
     Here are API details:<br>
     <ul>
     <li><strong>Ticket</strong><br></li>
