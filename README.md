@@ -395,7 +395,8 @@ This document contains descriptions of various problems for practicing Java prog
     In this exercise we are going to manage business logic of planning a sprint. A sprint is the basic unit of software development in SCRUM. Sprints are time boxed. Time capacity of a sprint is agreed while planning. Then we consider a sprint to be filled with some tasks.<br>
     We consider a task to be implemented with general-purpose <code>Ticket</code> class. But we also consider a sprint to accept only subtypes of the <code>Ticket</code> class: <code>Bug</code> and <code>UserStory</code>.<br>
     Here is a diagram depicting the public interface of these classes and their relations:<br>
-    ![Diagram](https://raw.githubusercontent.com/denys-taranenko/learn-java-basic-epam/main/LearnJavaBasics/src/test/resources/images/sprintDiagram.png)
+
+![Diagram](https://raw.githubusercontent.com/denys-taranenko/learn-java-basic-epam/main/LearnJavaBasics/src/test/resources/images/sprintDiagram.png)
     Here are API details:<br>
     <ul>
     <li><strong>Ticket</strong><br></li>
