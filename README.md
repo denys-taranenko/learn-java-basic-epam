@@ -415,7 +415,7 @@ This document contains descriptions of various problems for practicing Java prog
     We consider a user story to be a ticket that may contain some dependencies. A dependency is another user story that must be completed first to allow the dependent user story to complete. One provides dependencies of the UserStory via the constructor of the <code>UserStory</code> class.
         <ul>
             <li><code>complete()</code> - Like the <code>Ticket#complete()</code> method, this sets the ticket to completed state. The difference is that the user story may not be completed if its dependencies are not completed yet.</li>
-            <li><code>getDependencies()</code> - Returns a defensive copy of dependencies array.</li>
+            <li><code>getDependencies()</code> - Returns a defensive copy of dependencies arrays.</li>
             <li><code>toString()</code> - Returns a String representing this user story, using its id and name. Example: "[US 1] User Registration Entity"</li>
         </ul>
     </ul>
@@ -446,4 +446,167 @@ This document contains descriptions of various problems for practicing Java prog
         </ul>
     </ul>
     <strong>Important restriction:</strong> Note that in this exercise you <strong>may not</strong> use <em>Collections</em> and <em>Streams</em>.
+</details>
+
+---
+
+## Abstract Classes and Interfaces
+
+### Task Carousel
+<details>
+  <summary>Task</summary>
+  <p>
+    In this exercise you need to design two implementations of the <code>Task</code> interface:<br>
+    <ul>
+    <li><code>CountDownTask</code>:<br></li>
+        <ul>
+            <li>The constructor of <code>CountDownTask</code> takes a single int value as a parameter. It is the initial value of the countdown. Input value must not be negative. If it is, set zero value.</li>
+            <li>Each time the <code>execute</code> method is called, this value decrements by one, until it reaches zero. Then the <code>execute</code> method no longer decrements the value and the task is considered finished.</li>
+            <li>If the task is initialized with zero value, consider it finished right upon creating.</li>
+            <li>Value of the task is accessible via getter.</li>
+        </ul>
+    <li><code>CompleteByRequestTask</code>:<br></li>
+        <ul>
+            <li>Constructor of the <code>CompleteByRequestTask</code> takes no parameters.</li>
+            <li>Calling <code>execute</code> method on the task does not make it finished until the <code>complete</code> method is called.</li>
+            <li>Once the <code>complete</code> method is called, the next call to <code>execute</code> makes the task finished. Note that the task is not finished right after calling the <code>complete</code> method. The task finishes only when subsequent call to <code>execute</code> occurs.</li>
+        </ul>
+    </ul>
+    Also, you need to implement the <code>TaskCarousel</code>:<br>
+    <ul>
+    <li>A task carousel has a capacity provided as a constructor parameter.<br></li>
+    <li>The <code>TaskCarousel</code> has <code>isEmpty</code> method. It returns <code>true</code> if there is no task in the carousel for execution. Returns <code>false</code> otherwise.<br></li>
+    <li>The <code>TaskCarousel</code> has <code>isFull</code> method. It returns <code>true</code> if there is no more room in the carousel to add another task. Returns <code>false</code> otherwise.<br></li>
+    <li>You may add tasks to the carousel via <code>addTask</code> method. It returns <code>true</code> if the task is accepted and <code>false</code> otherwise. Task may be not accepted due to following reasons:<br></li>
+        <ul>
+            <li>Task argument is null.</li>
+            <li>Task is already finished.</li>
+            <li>Carousel is full.</li>
+        </ul>
+    <li>You may execute tasks in the carousel via <code>execute</code> method.<br></li>
+        <ul>
+            <li>Each time when this method is invoked, carousel must switch to the next task within and execute it.</li>
+            <li>Iteration is in circular manner. If there are 4 tasks inside a carousel, then if we call <code>execute</code> method on the carousel 4 times in a row, each task must be executed once.</li>
+            <li>If the task is finished after execution, remove it from the carousel.</li>
+            <li>The method returns <code>true</code> if any task was executed. Returns <code>false</code> otherwise.</li>
+        </ul>
+    </ul>
+</details>
+
+### Figures
+<details>
+  <summary>Task</summary>
+  <p>
+    Please, make <code>Triangle</code>, <code>Quadrilateral</code>, <code>Circle</code> classes extend <code>Figure</code> abstract class.<br>
+    Implement methods in <code>Triangle</code>, <code>Quadrilateral</code>, <code>Circle</code>:<br>
+<ul>
+    <li>1. Constructors with following parameters:<br></li>
+        <ul>
+            <li><code>Triangle</code> - three vertices (points) as parameters.</li>
+            <li><code>Quadrilateral</code> - four vertices (points) as parameters.</li>
+            <li><code>Circle</code> - point of the center and double value of the radius.</li>
+        </ul>
+    All the input datasets in tests are guaranteed to form a non-degenerative figures. For Quadrilaterals, it is guaranteed that all test datasets would form a convex quadrilaterals.
+    <li>2. <code>public double area()</code><br></li>
+    Return the area of the figure.<br>
+    <em>Note:</em> Convex quadrilaterals can be divided into two triangles by any of their diagonals.<br>
+    <li>3. <code>public String pointsToString()</code><br></li>
+    Return a String value in following formats:<br>
+        <ul>
+            <li><code>Triangle</code> - </li>
+            <ul>
+                <li>Format: <code>(a.x,a.y)(b.x,b.y)(c.x,c.y)</code></li>
+                <li>Example: <code>(0.0,0.0)(0.1,5.8)(7.0,7.0)</code></li>
+            </ul>
+            <li><code>Quadrilateral</code> - </li>
+            <ul>
+                <li>Format: <code>(a.x,a.y)(b.x,b.y)(c.x,c.y)(d.x, d.y)</code></li>
+                <li>Example: <code>(0.0,0.0)(0.0,7.1)(7.0,7.0)(7.0,0.0)</code></li>
+            </ul>
+            <li><code>Circle</code> - </li>
+            <ul>
+                <li>Format: <code>(center.x,center.y)</code></li>
+                <li>Example: <code>(0.0,0.6)</code></li>
+            </ul>
+        </ul>
+    <em>Note:</em> you may benefit from implementing toString() in the <code>Point</code> class.<br>
+    <li>4. <code>public String toString()</code><br></li>
+    Return a String value in following formats:<br>
+        <ul>
+            <li><code>Triangle</code> - </li>
+            <ul>
+                <li>Format: <code>Triangle[(a.x,a.y)(b.x,b.y)(c.x,c.y)]</code></li>
+                <li>Example: <code>Triangle[(0.0,0.0)(0.1,5.8)(7.0,7.0)]</code></li>
+            </ul>
+            <li><code>Quadrilateral</code> - </li>
+            <ul>
+                <li>Format: <code>Quadrilateral[(a.x,a.y)(b.x,b.y)(c.x,c.y)(d.x, d.y)]</code></li>
+                <li>Example: <code>Quadrilateral[(0.0,0.0)(0.0,7.1)(7.0,7.0)(7.0,0.0)]</code></li>
+            </ul>
+            <li><code>Circle</code> - </li>
+            <ul>
+                <li>Format: <code>Circle[(center.x,center.y)radius]</code></li>
+                <li>Example: <code>Circle[(0.0,0.6)4.5]</code></li>
+            </ul>
+        </ul>
+    <em>Note:</em> you may use default implementation given in the <code>Figure</code> class, when it suits a case well.<br>
+    <li>5. <code>public Point leftmostPoint()</code><br></li>
+    Return a leftmost point of the figure: the one having the least <code>X</code> coordinate.<br>
+    If there are many leftmost points, return any of them.<br>
+    </ul>
+    <code>Point</code> class is already there.<br>
+    Hints:<br>
+    <ul>
+      <li><a href="https://en.wikipedia.org/wiki/Degeneracy_(mathematics)">Degeneracy reference</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Quadrilateral#Convex_quadrilaterals">Convex quadrilateral reference</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Triangle#Computing_the_area_of_a_triangle">Triangle area reference</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Circle#Area_enclosed">Circle area reference</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Quadrilateral#Area_of_a_convex_quadrilateral">Quadrilateral area reference</a></li>
+    </ul>
+</details>
+
+### Figures. Extra Challenge
+<details>
+  <summary>Task</summary>
+  <p>
+    Please, make <code>Triangle</code>, <code>Quadrilateral</code>, <code>Circle</code> classes extend <code>Figure</code> abstract class.<br>
+    Implement methods in <code>Triangle</code>, <code>Quadrilateral</code>, <code>Circle</code>:<br>
+<ul>
+    <li>1. Constructors with following parameters:<br></li>
+        <ul>
+            <li><code>Triangle</code> - three vertices (points) as parameters.</li>
+            <li><code>Quadrilateral</code> - four vertices (points) as parameters.</li>
+            <li><code>Circle</code> - point of the center and double value of the radius.</li>
+        </ul>
+    Ensure figures are not degenerative.<br>
+    All of them must have non-zero area.<br>
+    Quadrilateral is also must be convex.<br>
+    If a figure is not good, throw an IllegalArgumentException.<br>
+    <em>Note:</em> A non-degenerative convex quadrilateral is divided into four non-degenerative triangles by its diagonals.<br> 
+    <em>Note:</em> double calculations are not completely accurate, use <em>error delta</em>, where applies.<br>
+    <li>2. <code>public Point centroid()</code><br></li>
+    Return the centroid of the figure.<br>
+    Centroid refers to center of mass of the plain figure, not the baricenter.<br>
+    In other words it should be <em>"area centroid"</em>.<br>
+    <li>3. <code>public boolean isTheSame(Figure figure)</code><br></li>
+    Two figures are considered to be the same only:<br>
+        <ul>
+            <li>If they have the same type.</li>
+            <li>And if they coincide (e.g. have same vertices).</li>
+        </ul>
+    <em>Note:</em> Order of the vertices have not to be the same.<br>
+    <em>Note:</em> double calculations are not completely accurate, use <em>error delta</em>, where applies.<br>
+    </ul>
+    <em>Note for curious: it is almost like <code>equals()</code> but it is not. Method <code>equals</code> requires consistent behavior alongside <code>hashCode()</code> and it is quite complicated to establish in terms of approximate equality like in this exercise.</em><br>
+    <code>Point</code> class is already there.<br>
+    You may use <code>main</code>  method of <code>Figure</code>  class to try out your code.<br>
+    Hints:<br>
+    <ul>
+      <li><a href="https://en.wikipedia.org/wiki/Degeneracy_(mathematics)">Degeneracy reference</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Quadrilateral#Convex_quadrilaterals">Convex quadrilateral reference</a></li>
+      <li><a href="https://www.engineeringintro.com/mechanics-of-structures/centre-of-gravity/centroid-of-circle/">Circle centroid reference</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Centroid#Of_a_triangle">Triangle centroid reference</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Quadrilateral#Remarkable_points_and_lines_in_a_convex_quadrilateral">Quadrilateral centroid reference</a></li>
+      <li><a href="https://sites.math.washington.edu/~king/java/gsp/center-mass-quad.html">Quadrilateral centroid reference 2</a></li>
+    </ul>
 </details>
