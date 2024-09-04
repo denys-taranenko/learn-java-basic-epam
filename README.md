@@ -610,3 +610,104 @@ This document contains descriptions of various problems for practicing Java prog
       <li><a href="https://sites.math.washington.edu/~king/java/gsp/center-mass-quad.html">Quadrilateral centroid reference 2</a></li>
     </ul>
 </details>
+
+---
+
+## Nested Classes
+
+### Contact Book
+<details>
+  <summary>Task</summary>
+  <p>
+    In this exercise we are going to manage contacts information.<br>
+    A <code>Contact</code> is a class containing different information of how to reach a person or a company: phone number, emails, social media.<br>
+    A contact has a name, which is provided via the class constructor. Also, a contact contains limited amount of entries:<br>
+    <ul>
+      <li>A phone number (only a single one).</li>
+      <li>Emails (up to 3 entries).</li>
+      <li>Social media links (up to 5 entries).</li>
+    </ul>
+    A contact info entry is described with <code>ContactInfo</code> interface. Each entry has a title and a value. You need to implemented them as nested classes of the <code>Contact</code> class:<br>
+    <ul>
+      <li><code>Contact.NameContactInfo</code> - A <code>ContactInfo</code> implementation providing the name of the contact. Implement as private non-static nested class. Use <code>"Name"</code> for the entry title. It must not have its own fields. It must use fields of the bounded <code>Contact</code> instance instead.</li>
+      <li><code>Contact.Email</code> - A <code>ContactInfo</code> implementation containing an email. Implement as public static nested class. Use <code>"Email"</code> for the entry title.</li>
+      <li><code>Contact.Social</code> - A <code>ContactInfo</code> implementation containing a social media link/id. Implement as public static nested class. Let the user of the class define the title.</li>
+      <li>Other implementations must be anonymous. Do not provide other non-anonymous classes.</li>
+    </ul>
+    It is possible to add contact info entries via <code>add*</code> methods. All such methods return the created entry as the result, <code>null</code> if nothing was added to the contact.<br>
+    <ul>
+      <li><code>addEmail(String localPart, String domain)</code><br>
+        Adds an email entry.<br>
+        <code>addEmail("someone", "somewhere.com").getValue()</code> will result to <code>someone@somewhere.com.</code></li>
+      <li><code>addEpamEmail(String firstname, String lastname)</code><br>
+        Adds a special email entry with <code>"epam.com"</code> domain. Please, implement this method using an anonymous extension of the <code>Email</code> class. Use <code>"Epam Email"</code> for the entry title.<br>
+        <code>addEpamEmail("some", "one").getValue()</code> will result to <code>some_one@epam.com</code></li>
+      <li><code>addPhoneNumber(int code, String number)</code><br>
+        Adds a contact info entry for the phone number. Please, implement this method using an anonymous class. Use <code>"Tel"</code> for the entry title.<br>
+        <code>addPhoneNumber(44, "444 444-44-44").getValue()</code> will result to <code>+44 444 444-44-44</code></li>
+      <li><code>addTwitter(String twitterId)</code><br>
+        Adds a contact info entry for the Twitter social media id. Use <code>"Twitter"</code> for the entry title, the given id for the value.</li>
+      <li><code>addInstagram(String instagramId)</code><br>
+        Adds a contact info entry for the Instagram social media id. Use <code>"Instagram"</code> for the entry title, the given id for the value.</li>
+      <li><code>addSocialMedia(String title, String id)</code><br>
+        Adds a contact info entry for the generic social media id. Use the given title for the entry title, the given id for the value.</li>
+    </ul>
+    Note that it is possible to rename contact with the <code>rename</code> method. Make sure it is not possible to rename contact to have <code>null</code> or empty value as the name.<br>
+    One more method that the <code>Contact</code> class have is the <code>getInfo()</code> method. This method returns an array containing the <code>ContactInfo</code> entries in the following order:<br>
+    <ul>
+      <li>Name contact info.</li>
+      <li>Phone number contact info (if set).</li>
+      <li>Email entries in order of addition (if any added).</li>
+      <li>Social media entries in order of addition (if any added) Resulting array must not contain any null values.</li>
+    </ul>
+    <strong>Important restriction:</strong> Note that in this exercise you <strong>may not</strong> use <em>Collections</em> and <em>Streams</em>.<br>
+</details>
+
+### Arithmetic Expressions
+<details>
+  <summary>Task</summary>
+  <p>
+    In this exercise we are going to design a DSL of arithmetic expressions.<br>
+    An <code>Expression</code> is an interface. It describes two methods:<br>
+    <ul>
+      <li><code>int evaluate()</code> - returns the result of evaluating of the expression.</li>
+      <li><code>String toExpressionString()</code> - returns string representation of the expression.</li>
+    </ul>
+     The only non-anonymous implementation of the <code>Expression</code> is the <code>Variable</code> class. Please, implement its methods:<br>
+    <ul>
+      <li><code>public Variable(String name, int value)</code> - a constructor of the <code>Variable</code> class. Sets name and value of the variable.</li>
+      <li><code>public void setValue(int value)</code> - a method to change the value of the variable.</li>
+      <li><code>public int evaluate()</code> - returns the value of the variable.</li>
+      <li><code>public String toExpressionString()</code> - returns the name of the variable.</li>
+    </ul>
+    All other implementations of the <code>Expression</code> interface must be anonymous, defined in static methods of the <code>Expressions</code> class:<br>
+    <ul>
+      <li><code>Variable var(String name, int value)</code> - returns a <code>Variable</code> with given name and value. A simple convenience method.</li>
+      <li><code>Expression val(int value)</code> - returns an <code>Expression</code> holding a value. Consider following methods' implementation details:</li>
+        <ul>
+            <li><code>int evaluate()</code> - returns the given value.</li>
+            <li><code>String toExpressionString()</code> - returns a string representation of the given value. Enclose with <code>(</code>, <code>)</code> braces if the value is negative.</li>
+        </ul>
+      <li><code>Expression sum(Expression... members)</code> - returns an <code>Expression</code> holding a sum of the given members. Consider that it is guaranteed that at least two members will be given each method call. Consider following methods' implementation details:</li>
+        <ul>
+            <li><code>int evaluate()</code> - returns the sum of evaluation result of all the given members.</li>
+            <li><code>String toExpressionString()</code> - returns a string representation of the given sum. Example: <code>sum(val(1), val(2), val(3)).toExpressionString()</code> results to <code>(1 + 2 + 3)</code>.</li>
+        </ul>
+      <li><code>Expression product(Expression... members)</code> - returns an <code>Expression</code> holding a product of the given members. Consider that it is guaranteed that at least two members will be given each method call. Consider following methods' implementation details:</li>
+        <ul>
+            <li><code>int evaluate()</code> - returns the product of evaluation result of all the given members.</li>
+            <li><code>String toExpressionString()</code> - returns a string representation of the given product. Example: <code>product(val(1), val(2), val(3)).toExpressionString()</code> results to <code>(1 * 2 * 3)</code>.</li>
+        </ul>
+      <li><code>Expression difference(Expression minuend, Expression subtrahend)</code> - returns an <code>Expression</code> holding a difference between the given minuend and the given subtrahend. Consider following methods' implementation details:</li>
+        <ul>
+            <li><code>int evaluate()</code> - returns the difference between the given minuend evaluation result and the given subtrahend evaluation result.</li>
+            <li><code>String toExpressionString()</code> - returns a string representation of the given difference. Example: <code>product(val(1), val(2)).toExpressionString()</code> results to <code>(1 - 3)</code>.</li>
+        </ul>
+      <li><code>Expression fraction(Expression dividend, Expression divisor)</code> - returns an <code>Expression</code> holding a ratio of the given dividend to the given divisor. Note that it refers to an <em>integer</em> division operation, i.e. <code>fraction(val(3), val(4)).evaluate()</code> result to <code>0</code>. Consider following methods' implementation details:</li>
+        <ul>
+            <li><code>int evaluate()</code> - returns the ratio of the given dividend evaluation result to the given divisor evaluation result.</li>
+            <li><code>String toExpressionString()</code> - returns a string representation of the given fraction. Example: <code>fraction(val(1), val(2)).toExpressionString()</code> results to <code>(1 / 2)</code>.</li>
+        </ul>
+    </ul>
+    <strong>Important restriction:</strong> Note that in this exercise you <strong>may not</strong> add more non-anonymous classes.<br>
+</details>
