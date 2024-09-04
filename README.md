@@ -6,7 +6,7 @@ This document contains descriptions of various problems for practicing Java prog
 
 ## First Programs in Java
 
-### Meet Autocode
+### MeetAuto Code
 <details>
   <summary>Task</summary>
   <p>
@@ -388,7 +388,7 @@ This document contains descriptions of various problems for practicing Java prog
     In this exercise you need to extend <code>DecrementingCarousel</code>. You need to implement <code>DecrementingCarouselWithLimitedRun</code>. This subclass must decrement elements as a usual DecrementingCarousel. The difference is that this implementation must produce a carousel run, which limits number of calls to the <code>next</code> method. When the limit of calls reached carousel run must consider itself finished.
 </details>
 
-### SprintPlanning
+### Sprint Planning
 <details>
   <summary>Task</summary>
   <p>
