@@ -6,7 +6,7 @@ This document contains descriptions of various problems for practicing Java prog
 
 ## First Programs in Java
 
-### MeetAuto Code
+### [MeetAuto Code](https://github.com/denys-taranenko/learn-java-basic-epam/tree/main/LearnJavaBasics/src/main/java/com/epam/java/basics/module_1_first_programs_in_java/task_1_meet_autocode)
 <details>
   <summary>Task</summary>
   <p>
@@ -14,7 +14,7 @@ This document contains descriptions of various problems for practicing Java prog
   </p>
 </details>
 
-### Meet a Stranger
+### [Meet a Stranger](https://github.com/denys-taranenko/learn-java-basic-epam/tree/main/LearnJavaBasics/src/main/java/com/epam/java/basics/module_1_first_programs_in_java/task_2_meet_a_stranger)
 <details>
   <summary>Task</summary>
   <p>
@@ -26,7 +26,7 @@ This document contains descriptions of various problems for practicing Java prog
 
 ## Data Types
 
-### Electronic Watch
+### [Electronic Watch](https://github.com/denys-taranenko/learn-java-basic-epam/tree/main/LearnJavaBasics/src/main/java/com/epam/java/basics/module_2_data_types/task_1_electronic_watch)
 <details>
   <summary>Task</summary>
   <p>
@@ -41,7 +41,7 @@ This document contains descriptions of various problems for practicing Java prog
 
 ## Conditions and Loops
 
-### Meet an Agent
+### [Meet an Agent](https://github.com/denys-taranenko/learn-java-basic-epam/tree/main/LearnJavaBasics/src/main/java/com/epam/java/basics/module_3_conditions_and_loops/task_1_meet_an_agent)
 <details>
   <summary>Task</summary>
   <p>
@@ -55,7 +55,7 @@ This document contains descriptions of various problems for practicing Java prog
     It is guaranteed that the input is not null.
 </details>
 
-### Meet Strangers
+### [Meet Strangers](https://github.com/denys-taranenko/learn-java-basic-epam/tree/main/LearnJavaBasics/src/main/java/com/epam/java/basics/module_3_conditions_and_loops/task_2_meet_strangers)
 <details>
   <summary>Task</summary>
   <p>
@@ -73,7 +73,7 @@ This document contains descriptions of various problems for practicing Java prog
     </ul>
 </details>
 
-### Snail
+### [Snail](https://github.com/denys-taranenko/learn-java-basic-epam/tree/main/LearnJavaBasics/src/main/java/com/epam/java/basics/module_3_conditions_and_loops/task_3_snail)
 <details>
   <summary>Task</summary>
   <p>
@@ -84,7 +84,7 @@ This document contains descriptions of various problems for practicing Java prog
   </p>
 </details>
 
-### Go Dutch
+### [Go Dutch](https://github.com/denys-taranenko/learn-java-basic-epam/tree/main/LearnJavaBasics/src/main/java/com/epam/java/basics/module_3_conditions_and_loops/task_4_go_dutch)
 <details>
   <summary>Task</summary>
   <p>
@@ -100,7 +100,7 @@ This document contains descriptions of various problems for practicing Java prog
     </ul>
 </details>
 
-### Max Value In Sequence
+### [Max Value In Sequence](https://github.com/denys-taranenko/learn-java-basic-epam/tree/main/LearnJavaBasics/src/main/java/com/epam/java/basics/module_3_conditions_and_loops/task_5_max_value_in_sequence)
 <details>
   <summary>Task</summary>
   <p>
@@ -112,7 +112,7 @@ This document contains descriptions of various problems for practicing Java prog
     </ul>
 </details>
 
-### Average
+### [Average](https://github.com/denys-taranenko/learn-java-basic-epam/tree/main/LearnJavaBasics/src/main/java/com/epam/java/basics/module_3_conditions_and_loops/task_6_average)
 <details>
   <summary>Task</summary>
   <p>
@@ -125,7 +125,7 @@ This document contains descriptions of various problems for practicing Java prog
     </ul>
 </details>
 
-### Pizza Split
+### [Pizza Split](https://github.com/denys-taranenko/learn-java-basic-epam/tree/main/LearnJavaBasics/src/main/java/com/epam/java/basics/module_3_conditions_and_loops/task_7_pizza_split)
 <details>
   <summary>Task</summary>
   <p>
@@ -138,7 +138,7 @@ This document contains descriptions of various problems for practicing Java prog
     Then the program must print the minimum number of pizzas (not zero) so that everyone has an equal number of slices and no slice is left.<br>
 </details>
 
-### Quadratic Equation
+### [Quadratic Equation](https://github.com/denys-taranenko/learn-java-basic-epam/tree/main/LearnJavaBasics/src/main/java/com/epam/java/basics/module_3_conditions_and_loops/task_8_quadratic_equation)
 <details>
   <summary>Task</summary>
   <p>
@@ -157,7 +157,7 @@ This document contains descriptions of various problems for practicing Java prog
 
 ## Arrays
 
-### Max method
+### [Max method](https://github.com/denys-taranenko/learn-java-basic-epam/tree/main/LearnJavaBasics/src/main/java/com/epam/java/basics/module_4_arrays/task_1_max_method)
 <details>
   <summary>Task</summary>
   <p>
@@ -171,7 +171,7 @@ This document contains descriptions of various problems for practicing Java prog
     </ul>
 </details>
 
-### Sum of even numbers
+### [Sum of even numbers](https://github.com/denys-taranenko/learn-java-basic-epam/tree/main/LearnJavaBasics/src/main/java/com/epam/java/basics/module_4_arrays/task_2_sum_of_even_numbers)
 <details>
   <summary>Task</summary>
   <p>
@@ -185,7 +185,7 @@ This document contains descriptions of various problems for practicing Java prog
     </ul>
 </details>
 
-### Sum of previous
+### [Sum of previous](https://github.com/denys-taranenko/learn-java-basic-epam/tree/main/LearnJavaBasics/src/main/java/com/epam/java/basics/module_4_arrays/task_3_sum_of_previous)
 <details>
   <summary>Task</summary>
   <p>
@@ -200,7 +200,7 @@ This document contains descriptions of various problems for practicing Java prog
     </ul>
 </details>
 
-### Local maxima remove
+### [Local maxima remove](https://github.com/denys-taranenko/learn-java-basic-epam/tree/main/LearnJavaBasics/src/main/java/com/epam/java/basics/module_4_arrays/task_4_local_maxima_remove)
 <details>
   <summary>Task</summary>
   <p>
@@ -216,7 +216,7 @@ This document contains descriptions of various problems for practicing Java prog
     </ul>
 </details>
 
-### Cycle Swap
+### [Cycle Swap](https://github.com/denys-taranenko/learn-java-basic-epam/tree/main/LearnJavaBasics/src/main/java/com/epam/java/basics/module_4_arrays/task_5_cycle_swap)
 <details>
   <summary>Task</summary>
   <p>
@@ -235,7 +235,7 @@ This document contains descriptions of various problems for practicing Java prog
     </ul>
 </details>
 
-### Spiral
+### [Spiral](https://github.com/denys-taranenko/learn-java-basic-epam/tree/main/LearnJavaBasics/src/main/java/com/epam/java/basics/module_4_arrays/task_6_spiral)
 <details>
   <summary>Task</summary>
   <p>
@@ -252,7 +252,7 @@ This document contains descriptions of various problems for practicing Java prog
     </ul>
 </details>
 
-### Matrix Transposition
+### [Matrix Transposition](https://github.com/denys-taranenko/learn-java-basic-epam/tree/main/LearnJavaBasics/src/main/java/com/epam/java/basics/module_4_arrays/task_7_matrix_transposition)
 <details>
   <summary>Task</summary>
   <p>
@@ -261,7 +261,7 @@ This document contains descriptions of various problems for practicing Java prog
     Consider an integer matrix represented as a <strong>rectangular array</strong>. The task is to <strong>transpose</strong> a given matrix over its main diagonal. The <strong>transposition</strong> of a matrix over its main diagonal is simply a flipped version of the original matrix.
 </details>
 
-### Matrices Multiplication
+### [Matrices Multiplication](https://github.com/denys-taranenko/learn-java-basic-epam/tree/main/LearnJavaBasics/src/main/java/com/epam/java/basics/module_4_arrays/task_8_matrices_multiplication)
 <details>
   <summary>Task</summary>
   <p>
@@ -275,7 +275,7 @@ This document contains descriptions of various problems for practicing Java prog
 
 ## Classes
 
-### Line Intersection
+### [Line Intersection](https://github.com/denys-taranenko/learn-java-basic-epam/tree/main/LearnJavaBasics/src/main/java/com/epam/java/basics/module_5_classes/task_1_line_intersection)
 <details>
   <summary>Task</summary>
   <p>
@@ -285,7 +285,7 @@ This document contains descriptions of various problems for practicing Java prog
     You may check your result in class <code>Main</code>.
 </details>
 
-### Segments
+### [Segments](https://github.com/denys-taranenko/learn-java-basic-epam/tree/main/LearnJavaBasics/src/main/java/com/epam/java/basics/module_5_classes/task_2_segments)
 <details>
   <summary>Task</summary>
   <p>
@@ -313,7 +313,7 @@ This document contains descriptions of various problems for practicing Java prog
     </ul>
 </details>
 
-### Triangle
+### [Triangle](https://github.com/denys-taranenko/learn-java-basic-epam/tree/main/LearnJavaBasics/src/main/java/com/epam/java/basics/module_5_classes/task_3_triangle)
 <details>
   <summary>Task</summary>
   <p>
@@ -338,7 +338,7 @@ This document contains descriptions of various problems for practicing Java prog
     Please note that you may benefit from introducing more classes.
 </details>
 
-### Decrementing Carousel
+### [Decrementing Carousel](https://github.com/denys-taranenko/learn-java-basic-epam/tree/main/LearnJavaBasics/src/main/java/com/epam/java/basics/module_5_classes/task_4_decrementing_carousel)
 <details>
   <summary>Task</summary>
   <p>
@@ -364,7 +364,7 @@ This document contains descriptions of various problems for practicing Java prog
 
 ## Introduction to OOP
 
-### Halving Carousel
+### [Halving Carousel](https://github.com/denys-taranenko/learn-java-basic-epam/tree/main/LearnJavaBasics/src/main/java/com/epam/java/basics/module_6_introduction_to_oop/task_1_halving_carousel)
 <details>
   <summary>Task</summary>
   <p>
@@ -372,7 +372,7 @@ This document contains descriptions of various problems for practicing Java prog
     In this exercise you need to extend <code>DecrementingCarousel</code>. You need to implement <code>HalvingCarousel</code>. This subclass must halve elements instead of decrementing it by one. Note that you need to apply regular integer division, discarding the remainder. For example, <code>5 / 2 = 2</code>.
 </details>
 
-### Gradually Decreasing Carousel
+### [Gradually Decreasing Carousel](https://github.com/denys-taranenko/learn-java-basic-epam/tree/main/LearnJavaBasics/src/main/java/com/epam/java/basics/module_6_introduction_to_oop/task_2_gradually_decreasing_carousel)
 <details>
   <summary>Task</summary>
   <p>
@@ -380,7 +380,7 @@ This document contains descriptions of various problems for practicing Java prog
     In this exercise you need to extend <code>DecrementingCarousel</code>. You need to implement <code>GraduallyDecreasingCarousel</code>. This subclass must decrement elements by gradually increasing decrement. When you need to decrement an element for the first time, decrease it by <code>1</code>. Next time you need to decrement the same element, decrease it by <code>2</code>. Next time decrease by <code>3</code>, then by <code>4</code> and so on. Remember that you must not make process non-positive elements.
 </details>
 
-### Decrementing Carousel with Limit
+### [Decrementing Carousel with Limit](https://github.com/denys-taranenko/learn-java-basic-epam/tree/main/LearnJavaBasics/src/main/java/com/epam/java/basics/module_6_introduction_to_oop/task_3_decrementing_carousel_with_limit)
 <details>
   <summary>Task</summary>
   <p>
@@ -388,7 +388,7 @@ This document contains descriptions of various problems for practicing Java prog
     In this exercise you need to extend <code>DecrementingCarousel</code>. You need to implement <code>DecrementingCarouselWithLimitedRun</code>. This subclass must decrement elements as a usual DecrementingCarousel. The difference is that this implementation must produce a carousel run, which limits number of calls to the <code>next</code> method. When the limit of calls reached carousel run must consider itself finished.
 </details>
 
-### Sprint Planning
+### [Sprint Planning](https://github.com/denys-taranenko/learn-java-basic-epam/tree/main/LearnJavaBasics/src/main/java/com/epam/java/basics/module_6_introduction_to_oop/task_4_sprint_planning)
 <details>
   <summary>Task</summary>
   <p>
@@ -452,7 +452,7 @@ This document contains descriptions of various problems for practicing Java prog
 
 ## Abstract Classes and Interfaces
 
-### Task Carousel
+### [Task Carousel](https://github.com/denys-taranenko/learn-java-basic-epam/tree/main/LearnJavaBasics/src/main/java/com/epam/java/basics/module_7_abstract_classes_and_interfaces/task_1_task_carousel)
 <details>
   <summary>Task</summary>
   <p>
@@ -493,7 +493,7 @@ This document contains descriptions of various problems for practicing Java prog
     </ul>
 </details>
 
-### Figures
+### [Figures](https://github.com/denys-taranenko/learn-java-basic-epam/tree/main/LearnJavaBasics/src/main/java/com/epam/java/basics/module_7_abstract_classes_and_interfaces/task_2_figures)
 <details>
   <summary>Task</summary>
   <p>
@@ -565,7 +565,7 @@ This document contains descriptions of various problems for practicing Java prog
     </ul>
 </details>
 
-### Figures. Extra Challenge
+### [Figures. Extra Challenge](https://github.com/denys-taranenko/learn-java-basic-epam/tree/main/LearnJavaBasics/src/main/java/com/epam/java/basics/module_7_abstract_classes_and_interfaces/task_3_figures_extra_challenge)
 <details>
   <summary>Task</summary>
   <p>
@@ -615,7 +615,7 @@ This document contains descriptions of various problems for practicing Java prog
 
 ## Nested Classes
 
-### Contact Book
+### [Contact Book](https://github.com/denys-taranenko/learn-java-basic-epam/tree/main/LearnJavaBasics/src/main/java/com/epam/java/basics/module_8_nested_classes/task_1_contact_book)
 <details>
   <summary>Task</summary>
   <p>
@@ -663,7 +663,7 @@ This document contains descriptions of various problems for practicing Java prog
     <strong>Important restriction:</strong> Note that in this exercise you <strong>may not</strong> use <em>Collections</em> and <em>Streams</em>.<br>
 </details>
 
-### Arithmetic Expressions
+### [Arithmetic Expressions](https://github.com/denys-taranenko/learn-java-basic-epam/tree/main/LearnJavaBasics/src/main/java/com/epam/java/basics/module_8_nested_classes/task_2_arithmetic_expressions)
 <details>
   <summary>Task</summary>
   <p>
