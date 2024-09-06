@@ -711,3 +711,130 @@ This document contains descriptions of various problems for practicing Java prog
     </ul>
     <strong>Important restriction:</strong> Note that in this exercise you <strong>may not</strong> add more non-anonymous classes.<br>
 </details>
+
+---
+
+## Working with Strings
+
+### [Words](https://github.com/denys-taranenko/learn-java-basic-epam/tree/main/LearnJavaBasics/src/main/java/com/epam/java/basics/module_9_working_with_strings/task_1_words)
+<details>
+  <summary>Task</summary>
+  <p>
+    Please, implement <code>StringUtil</code> class methods:<br>
+    <strong>1. countEqualIgnoreCaseAndSpaces</strong><br>
+    Method signature:<br>
+    <code>public static int countEqualIgnoreCaseAndSpaces(String[] words, String sample)</code><br>
+    Return the number of words from <code>words</code> array that are equal to <code>sample</code> ignoring characters case and leading and trailing spaces.<br>
+    If <code>sample</code> is <code>null</code> or <code>words</code> is <code>null</code> or empty, return <code>0</code>. <code>words</code> is guaranteed to not contain <code>null</code> values.<br>
+    <strong>2. splitWords</strong><br>
+    Method signature:<br>
+    <code>public static String[] splitWords(String text)</code><br>
+    Split <code>text</code> string into array of words using following separating characters: <code>",", ".", ";", ":", " ", "?", "!"</code>.<br>
+    For empty string, <code>null</code> string, and string consisting only of separating characters return <code>null</code>.<br>
+    <strong>3. convertPath</strong><br>
+    Method signature:<br>
+    <code>public static String[] splitWords(String text)</code><br>
+    Convert <code>path</code> to Unix\Windows path depending on a boolean parameter.<br>
+    Unix path may start with <code>~</code> or <code>/</code>. Every subdirectory must end with <code>/</code> character except the last one. Path elements <code>.</code> and <code>..</code> refer to current directory and parent directory. Filename doesn't necessarily have the extension.<br>
+    Unix path examples:<br>
+    <ul>
+        <li><code>/folder/../folder/file.txt</code></li>
+        <li><code>/dev/null</code></li>
+        <li><code>file.txt</code></li>
+        <li><code>folder/logs/</code></li>
+        <li><code>~/user/some_logs</code></li>
+    </ul>
+    Windows path may start with <code>C:</code>. Every subdirectory must end with <code>\</code> character except the last one. <code>.</code> and <code>..</code> refer to current directory and parent directory. Filename doesn't necessarily have the extension.<br>
+    Windows path examples:<br>
+    <ul>
+        <li><code>file.txt</code></li>
+        <li><code>\Program Files\some_file.exe</code></li>
+        <li><code>.\to_do_list.txt</code></li>
+        <li><code>C:Users\..\Cygwin\</code></li>
+        <li><code>.\file</code></li>
+    </ul>
+    Let's consider Unix <code>~</code> path to correspond to Windows <code>C:\User</code> path and vice versa.<br>
+    Let's consider Unix <code>/</code> root folder (i.e., when the path starts with <code>/</code>) to correspond to Windows <code>C:\</code> drive and vice versa (but <code>C:\User</code> still corresponds to <code>~</code>).<br>
+    If <code>path</code> already corresponds to the required format (for instance, is Windows path when Windows paths is needed and <code>toWin</code> boolean parameter is <code>true</code>) return <code>path</code>.<br>
+    If <code>path</code> is <code>null</code>, empty, or doesn't correspond to any path format (Unix, Windows), return <code>null</code>.<br>
+    It is guaranteed that <code>path</code> is either a correct path, or it has some of the following errors:<br>
+    <ul>
+        <li>More than one <code>~</code></li>
+        <li><code>~</code> is not at the start</li>
+        <li><code>~</code> mixed with <code>\</code> (<code>~</code> in Windows path)</li>
+        <li>More than one <code>C:</code></li>
+        <li><code>C:</code> is not at the start</li>
+        <li><code>C:</code> mixed with <code>/</code> (<code>C:</code> in Unix path)</li>
+        <li><code>\</code> mixed with <code>/</code></li>
+    </ul>
+    Illegal paths example:<br>
+    <ul>
+        <li><code>/folder1/folder2\folder3</code></li>
+        <li><code>C:\User/root</code></li>
+        <li><code>/dev/~/</code></li>
+        <li><code>C:/a/b/c/d</code></li>
+        <li><code>~\folder</code></li>
+        <li><code>~/~</code></li>
+        <li><code>~~</code></li>
+        <li><code>C:\Folder\Subfolder\C:\</code></li>
+    </ul>
+    <strong>4. joinWords</strong><br>
+    Method signature:<br>
+    <code>public static String joinWords(String[] words)</code><br>
+    Join <code>words</code> from words array and return as a string in the following format: "<code>[str_1, str_2, ..., str_n]</code>".<br>
+    If <code>words</code> is <code>null</code> or empty return <code>null</code>. <code>words</code> is guaranteed to not contain <code>null</code> values. <code>words</code> may contain empty strings, ignore them, i. e. don't put them in the resulting string. If <code>words</code> contains only empty strings return <code>null</code>.<br>
+    <strong>Hints</strong><br>
+    <ul>
+        <li>While implementing the methods you might need to come up with <code>regular expressions</code>. You may consider using <a href=https://regex101.com/">regex101.com</a> to easier design of regular expressions.</li>
+        <li>You can and should use following methods\classes (click on the name):</li>
+        <ul>
+            <li><a href=https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#strip()">String.strip</a></li>
+            <li><a href=https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#split(java.lang.String)">String.split</a></li>
+            <li><a href=https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#replaceAll(java.lang.String,java.lang.String)">String.replaceAll</a></li>
+            <li><a href=https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#replaceFirst(java.lang.String,java.lang.String)">String.replaceFirst</a></li>
+            <li><a href=https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#toLowerCase()">String.toLowerCase</a></li>
+            <li><a href=https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#equalsIgnoreCase(java.lang.String)">String.equalsIgnoreCase</a></li>
+            <li><a href=https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#startsWith(java.lang.String)">String.startsWith</a></li>
+            <li><a href=https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#matches(java.lang.String)">String.matches</a></li>
+            <li><a href=https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#join(java.lang.CharSequence,java.lang.CharSequence...)">String.join</a></li>
+            <li><a href=https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/StringBuilder.html">StringBuilder</a></li>
+            <li><a href=https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/StringJoiner.html">StringJoiner</a></li>
+            <li><a href=https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/StringTokenizer.html">StringTokenizer</a></li>
+        </ul>
+    </ul>
+</details>
+
+### [Validations. Color Code](https://github.com/denys-taranenko/learn-java-basic-epam/tree/main/LearnJavaBasics/src/main/java/com/epam/java/basics/module_9_working_with_strings/task_2_validations_color_code)
+<details>
+  <summary>Task</summary>
+  <p>
+    Please, implement <code>validateColorCode</code> method in <code>ColorCodeValidation</code>:<br>
+    This method checks the input string for compliance with the rules for writing <a href=https://htmlcolorcodes.com/">HTML Color Codes </a>.<br>
+    While implementing the methods you might need to come up with regular expressions. You may consider using <a href=https://regex101.com/">regex101.com</a> to ease designing them.<br>
+    You can and should use following methods\classes:<br>
+    <ul>
+        <li><code>matches</code></li>
+        <li><code>Pattern</code></li>
+        <li><code>Matcher</code></li>
+    </ul>
+</details>
+
+### [Validations. Epam email](https://github.com/denys-taranenko/learn-java-basic-epam/tree/main/LearnJavaBasics/src/main/java/com/epam/java/basics/module_9_working_with_strings/task_3_validations_epam_email)
+<details>
+  <summary>Task</summary>
+  <p>
+    Please, implement <code>validateEpamEmail</code> method in <code>EpamEmailValidation</code>:<br>
+    This method checks the input string for compliance with the rules for a regular EPAM email. Let us define them:<br>
+    <ul>
+        <li>A regular EPAM email includes firstname and lastname (in English), separated by underscore ("_").</li>
+        <li>EPAM email always ends with "@epam.com"</li>
+        <li>When a person gets new EPAM email, but email with this firstname and lastname is already registered, we add "1" to the new email. If such email is registered as well, we use "2" and so on.</li>
+    </ul>>
+    While implementing the method you might need to come up with regular expressions. You may consider using <a href=https://regex101.com/">regex101.com</a> to ease designing them.<br>
+    You can and should use following methods\classes:<br>
+    <ul>
+        <li><code>matches</code></li>
+        <li><code>Pattern</code></li>
+        <li><code>Matcher</code></li>
+    </ul>
+</details>
