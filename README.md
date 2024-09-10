@@ -889,3 +889,20 @@ This document contains descriptions of various problems for practicing Java prog
     You need to alter <code>residents</code> field and <code>enter</code> methods of the <code>House</code> class.<br>
     Note that if you have done everything right, then two particular lines in the <code>Main</code> class will prevent successful compilation, so you need to remove them. See details in the <code>Main</code> class.<br>
 </details>
+
+---
+
+## Enums
+
+### [Compass](https://github.com/denys-taranenko/learn-java-basic-epam/tree/main/LearnJavaBasics/src/main/java/com/epam/java/basics/module_13_enums/task_1_compass)
+<details>
+  <summary>Task</summary>
+  <p>
+    Please, implement methods in Direction class:<br>
+    <ul>
+        <li><code>ofDegrees</code> - Return a Direction instance by input degrees or empty Optional if there is none.</li>
+        <li><code>closestToDegrees</code> - Return the closest Direction instance to input degrees.</li>
+        <li><code>opposite</code> - Return a Direction instance that is opposite to this.</li>
+        <li><code>differenceDegreesTo</code> - Return the difference in degrees between this and input Direction instance.</li>
+    </ul>
+</details>
