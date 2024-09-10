@@ -838,3 +838,41 @@ This document contains descriptions of various problems for practicing Java prog
         <li><code>Matcher</code></li>
     </ul>
 </details>
+
+---
+
+## Exceptions
+
+### [Requirements](https://github.com/denys-taranenko/learn-java-basic-epam/tree/main/LearnJavaBasics/src/main/java/com/epam/java/basics/module_10_exceptions/task_1_requirements)
+<details>
+  <summary>Task</summary>
+  <p>
+    Please, implement Requirements methods:<br>
+    <ul>
+      <li><code>requireNonNull(Object)</code> should throw new NullPointerException if object is null.</li>
+      <li><code>requireNonNull(Object, String)</code> should throw new NullPointerException with message if object is null.</li>
+      <li><code>checkArgument(boolean)</code> if boolean is false should throw new IllegalArgumentException.</li>
+      <li><code>checkArgument(boolean, String)</code> if boolean is false should throw new IllegalArgumentException with message.</li>
+      <li><code>checkState(boolean)</code> if boolean is false should throw new IllegalStateException.</li>
+      <li><code>checkState(boolean, String)</code> if boolean is false should throw new IllegalStateException with message.</li>
+      <li><code>checkElementIndex(int, int)</code> if index out of bounds throw new IndexOutOfBoundsException.</li>
+    </ul>
+    Such methods might be helpful to check arguments, object states.
+</details>
+
+### [Catch'em all](https://github.com/denys-taranenko/learn-java-basic-epam/tree/main/LearnJavaBasics/src/main/java/com/epam/java/basics/module_10_exceptions/task_2_%D1%81atch_em_all)
+<details>
+  <summary>Task</summary>
+  <p>
+    Please, implement the main method in CatchEmAll class. It must handle a call to a risky method that can throw different types of exceptions.<br>
+    Please, note that some types of exceptions should be handled, while others – shouldn’t.<br>
+    Details:<br>
+
+| What is thrown                               | How to handle                                                                         |
+|----------------------------------------------|---------------------------------------------------------------------------------------|
+| IOException                                  | Wrap in an IllegalArgumentException with a message "Resource error" and throw it      |
+| FileNotFoundException                        | Wrap in an IllegalArgumentException with a message "Resource is missing" and throw it |
+| ArithmeticException or NumberFormatException | Print a message of the thrown exception to System.err and do not throw anything       |
+| Any other Exceptions                         | Should not be caught                                                                  |
+
+</details>
