@@ -876,3 +876,16 @@ This document contains descriptions of various problems for practicing Java prog
 | Any other Exceptions                         | Should not be caught                                                                  |
 
 </details>
+
+---
+
+## Generics
+
+### [Beware of Dogs](https://github.com/denys-taranenko/learn-java-basic-epam/tree/main/LearnJavaBasics/src/main/java/com/epam/java/basics/module_12_generics/task_1_beware_of_dogs)
+<details>
+  <summary>Task</summary>
+  <p>
+    Please, use generics to change <code>House</code> class in order to dogs cannot enter cats' house and cats cannot enter dogs' house.<br>
+    You need to alter <code>residents</code> field and <code>enter</code> methods of the <code>House</code> class.<br>
+    Note that if you have done everything right, then two particular lines in the <code>Main</code> class will prevent successful compilation, so you need to remove them. See details in the <code>Main</code> class.<br>
+</details>
