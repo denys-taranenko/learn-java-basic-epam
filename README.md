@@ -906,3 +906,27 @@ This document contains descriptions of various problems for practicing Java prog
         <li><code>differenceDegreesTo</code> - Return the difference in degrees between this and input Direction instance.</li>
     </ul>
 </details>
+
+---
+
+## Wrapper Classes
+
+### [Battleship 8x8](https://github.com/denys-taranenko/learn-java-basic-epam/tree/main/LearnJavaBasics/src/main/java/com/epam/java/basics/module_14_wrapper_classes/task_1_battleship8x8)
+<details>
+  <summary>Task</summary>
+  <p>
+    Please, implement methods in Battleship8x8 class.<br>
+    Battleship8x8 represents a 8x8 map for <a href=https://en.wikipedia.org/wiki/Battleship_(game)">Battleship game </a>. An important detail is that Battleship8x8 uses a <code>ships</code> field of long type to store ships locations and a <code>shots</code> field of long type to register shots.<br>
+    Fields of long type value store 64 bits each. Consider them as 8 rows per 8 cells. '0' bits represent empty cells, '1' bits represent cells seized by ships or registered shots.<br>
+    <ul>
+        <li><code>public boolean shoot(String shot)</code> - Registers a shot and returns <code>true</code> if the shot hits a ship. A shot is a combination of one of A-H letters and one of 1-8 digits.</li>
+        <li><code>public String state()</code> - Returns a string representing state of the map. Map string is 8 lines per 8 characters separated by "\n". Use following symbols:</li>
+            <ul>
+                <li>'.' - an empty cell</li>
+                <li>'×' - an empty cell that has been shot</li>
+                <li>'☐' - a cell seized by a ship</li>
+                <li>'☒'- a cell seized by a ship that has been shot</li>
+            </ul>
+    </ul>
+    You must not add or change new fields. Consider using static methods of wrapper classes.
+</details>
