@@ -930,3 +930,20 @@ This document contains descriptions of various problems for practicing Java prog
     </ul>
     You must not add or change new fields. Consider using static methods of wrapper classes.
 </details>
+
+---
+
+## Optional
+
+### [Optional Max](https://github.com/denys-taranenko/learn-java-basic-epam/tree/main/LearnJavaBasics/src/main/java/com/epam/java/basics/module_15_optional/task_1_optional_max)
+<details>
+  <summary>Task</summary>
+  <p>
+    Implement <code>max</code> method of <code>MaxMethod</code> class.<br>
+    The correct implementation should receive an array of <code>int</code> values and return its maximum value.<br>
+    Details:<br>
+    <ul>
+        <li>the method returns the result as OptionalInt</li>
+        <li>if the input array is empty or <code>null</code>, return empty OptionalInt.</li>
+    </ul>
+</details>
