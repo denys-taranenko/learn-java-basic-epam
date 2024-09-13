@@ -947,3 +947,44 @@ This document contains descriptions of various problems for practicing Java prog
         <li>if the input array is empty or <code>null</code>, return empty OptionalInt.</li>
     </ul>
 </details>
+
+---
+
+## Introduction to Collections
+
+### [Introduction to Collections](https://github.com/denys-taranenko/learn-java-basic-epam/tree/main/LearnJavaBasics/src/main/java/com/epam/java/basics/module_16_introduction_to_collections/task_1_iterating_collections)
+<details>
+  <summary>Task</summary>
+  <p>
+    In this task, you will simulate the work of a new post office that takes parcels weighing between 0.5 and 20 kg and with a maximum volume of 0.25 м3.<br>
+    The <code>Box</code> class describes parcels. A parcel has the following characteristics: sender, recipient, weight, volume, and shipping cost. All characteristics except for the shipping cost are passed to the constructor to create an object. The shipping cost is calculated based on the weight, volume, and value of the parcel.<br>
+    The <code>NewPostOffice</code> class has:<br>
+    <ul>
+      <li><code>NewPostOffice()</code><br>
+          Creates an office (an empty collection of parcels)</li>
+      <li><code>Collection&lt;Box&gt; getListBox()</code><br>
+          Returns a collection of parcels in the office</li>
+      <li><code>static BigDecimal calculateCostOfBox(double weight, double volume, int value)</code><br>
+          Calculates the cost of a parcel</li>
+    </ul>
+    Please proceed to the NewPostOffice class and implement its methods using an iterator:<br>
+    <ul>
+      <li><code>Collection&lt;Box&gt; deliveryBoxToRecipient(String recipient)</code><br>
+          Returns all parcels of a specified recipient; any parcels found must be removed from the office</li>
+      <li><code>void declineCostOfBox(double percent)</code><br>
+          Changes the cost of each parcel in the office by the percentage specified</li>
+      <li><code>boolean addBox(String sender, String recipient, double weight, double volume, int value)</code><br>
+          Creates a parcel, calculates its shipping cost, and adds it to the office</li>
+    </ul>
+    <strong>Details:</strong><br>
+    <ul>
+        <li>The sender and receiver must exist.</li>
+        <li>The weight must be 0.5–20.0 kg.</li>
+        <li>The volume must be greater than 0 and less than 0.25 m3.</li>
+        <li>The value must be greater than zero.</li>
+        <li>The cost of a parcel is calculated as follows: the weight is multiplied by the cost of one kilogram, the volume is multiplied by the cost of one cubic meter, the value is multiplied by a given coefficient, then everything is summed up.</li>
+        <li>If the values of the data above are set incorrectly (by specifying invalid values), the java.lang.IllegalArgumentException is thrown.</li>
+    </ul>
+    <strong>Restriction:</strong><br>
+    You may not use the Lambdas or the Streams API.
+</details>
