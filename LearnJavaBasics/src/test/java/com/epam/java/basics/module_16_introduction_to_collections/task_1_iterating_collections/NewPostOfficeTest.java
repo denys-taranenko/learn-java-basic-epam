@@ -25,7 +25,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @AnalyzeClasses(packages = "com.epam.java.basics.module_16_introduction_to_collections.task_1_iterating_collections", importOptions = { ImportOption.DoNotIncludeTests.class })
 class NewPostOfficeTest {
 
-    private static final String SRC_TEST_RESOURCES_DECLINED_COSTS_CSV = "src/test/resources/newpostoffice/declinedCosts.csv";
+    private static final String SRC_TEST_RESOURCES_DECLINED_COSTS_CSV = "src/test/resources/new_post_office/declinedCosts.csv";
 
     @ParameterizedTest
     @MethodSource("casesAddBox")
@@ -62,20 +62,20 @@ class NewPostOfficeTest {
     }
 
     @ParameterizedTest
-    @CsvFileSource(files = "src/test/resources/newpostoffice/costs.csv", delimiterString = ",")
+    @CsvFileSource(files = "src/test/resources/new_post_office/costs.csv", delimiterString = ",")
     void testCalculateCostOfBox(double weight, double volume, int value, BigDecimal expected) {
         assertEquals(expected, NewPostOffice.calculateCostOfBox(weight, volume, value));
     }
 
     @ParameterizedTest
-    @CsvFileSource(files = "src/test/resources/newpostoffice/throws.csv", delimiterString = ",")
+    @CsvFileSource(files = "src/test/resources/new_post_office/throws.csv", delimiterString = ",")
     void testAddShouldThrow(String addresser, String recipient, double weight, double volume, int value) {
         NewPostOffice office = new NewPostOffice();
         assertThrows(IllegalArgumentException.class, () -> office.addBox(addresser, recipient, weight, volume, value));
     }
 
     @ParameterizedTest
-    @CsvFileSource(files = "src/test/resources/newpostoffice/simple.csv", delimiterString = ",")
+    @CsvFileSource(files = "src/test/resources/new_post_office/simple.csv", delimiterString = ",")
     void testAddShouldNotThrow(String addresser, String recipient, double weight, double volume, int value) {
         NewPostOffice office = new NewPostOffice();
         assertDoesNotThrow(() -> office.addBox(addresser, recipient, weight, volume, value));

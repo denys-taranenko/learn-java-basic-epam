@@ -1,0 +1,13 @@
+<configuration>
+
+    <appender name="DEFAULT" class="ch.qos.logback.core.ConsoleAppender">
+        <!--<file>tests.log</file>-->
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} %method{20} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <root level="error">
+        <appender-ref ref="DEFAULT" />
+    </root>
+</configuration>
