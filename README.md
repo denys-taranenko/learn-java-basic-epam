@@ -988,3 +988,136 @@ This document contains descriptions of various problems for practicing Java prog
     <strong>Restriction:</strong><br>
     You may not use the Lambdas or the Streams API.
 </details>
+
+---
+
+## Lists And Queues
+
+### [Simple Array List](https://github.com/denys-taranenko/learn-java-basic-epam/tree/main/LearnJavaBasics/src/main/java/com/epam/java/basics/module_17_lists_and_queues/task_1_simple_array_list)
+<details>
+  <summary>Task</summary>
+  <p>
+    In this task, you will describe a list that is based on a dynamic array. The internal structure of the list is a one-dimensional array of the <code>Object</code> type with an initial capacity/size of 10 and a size field that stores the number of elements in the list. You must provide for the expansion of the array (list) capacity when the number of elements reaches 75% (load factor 0.75) of its size. Use the following expression to calculate the increase in capacity: Doub le the current capacity of the array and then multiply it by the load factor.<br>
+    Now, please proceed to the <code>SimpleArrayListImpl</code> class, which implements the <code>SimpleArrayList</code> interface, and provide implementations of the following methods:<br>
+    <ul>
+        <li><code>int size()</code><br>
+          Returns the number of elements</li>
+        <li><code>String toString()</code><br>
+          Makes a string representation of the list</li>
+        <li><code>boolean add(Object element)</code><br>
+          Appends the specified element to the end of the list</li>
+        <li><code>Object get(int index)</code><br>
+          Returns an element at a specified position in the list</li>
+        <li><code>Optional&lt;Object&gt; remove(Object element)</code><br>
+          Searches for and removes the specified element</li>
+        <li><code>int capacity()</code><br>
+          Returns the current length of the list</li>
+        <li><code>boolean decreaseCapacity()</code><br>
+          Decreases the capacity of the list if it is 40% full or less</li>
+    </ul>
+    <strong>Details:</strong><br>
+    <ul>
+        <li>The list is created by the default constructor, which creates an internal array with an initial length of 10 elements.</li>
+        <li>The list cannot contain <code>null</code> elements. The add and remove methods must throw a <code>NullPointerException</code> if they get null.</li>
+        <li>The get method must throw <code>IndexOutOfBoundsException</code> if the index is outside the [0 … size - 1] range.</li>
+        <li>The size field specifies the number of elements in the list and where to place the next element.</li>
+        <li>The method for adding a new element must first check whether the capacity of the list should be increased before adding it.</li>
+        <li>The <code>decreaseCapacity()</code> method calculates the new capacity by doubling the current number of elements.</li>
+        <li>You can add any private methods to the <code>SimpleArrayListImp</code> class.</li>
+    </ul>
+    <strong>Restrictions:</strong><br>
+    You may not:<br>
+    <ul>
+        <li>Use any type from the <code>java.util</code> package (or its subpackages) except for:<br>
+            * <code>java.util.Iterator</code><br>
+            * <code>java.util.Optional</code></li>
+        <li>Add any additional fields into the <code>SingleArrayListImpl</code> class.</li>
+        <li>Add any additional public methods to the <code>SingleArrayListImpl</code> class.</li>
+    </ul>
+</details>
+
+
+### [Doubly Linked List](https://github.com/denys-taranenko/learn-java-basic-epam/tree/main/LearnJavaBasics/src/main/java/com/epam/java/basics/module_17_lists_and_queues/task_2_doubly_linked_list)
+<details>
+  <summary>Task</summary>
+  <p>
+    In this task, you will describe a bidirectional list based on a linked representation. The internal structure of the list is a node chain (nested class <code>Node</code>) where each node encapsulates a list element and has one reference to the previous node and one reference to the following node. The first node has no reference to the previous node, and the last node has no reference to the next one.<br>
+    Now, please proceed to the <code>DoublyLinkedListImpl</code> class, which implements the <code>DoublyLinkedList</code> interface, and provide implementations of the following methods:<br>
+    <ul>
+        <li><code>boolean addFirst(Object element)</code><br>
+          Inserts an element at the beginning of the list and returns true if an element is successfully added and, if not, false</li>
+        <li><code>boolean addLast(Object element)</code><br>
+          Appends an element to the end of this list and returns true if an element is successfully added and, if not, false</li>
+        <li><code>boolean delete(int index)</code><br>
+          Deletes an element by index and throws <code>IndexOutOfBoundsException</code> if the index is out of range</li>
+        <li><code>Optional&lt;Object&gt; remove(Object element)</code><br>
+          Returns and deletes the first occurrence of the specified element in the list</li>
+        <li><code>boolean set(int index, Object element)</code><br>
+          Finds the element at the specified index and replaces it or throws the <code>IndexOutOfBoundsException</code> if the index is out of range</li>
+        <li><code>int size()</code><br>
+          Returns the number of elements in the list</li>
+        <li><code>Object[] toArray()</code><br>
+          Returns an array containing all the elements in order from first to last</li>
+        <li><code>String toString()</code><br>
+          Returns a string representation of the list</li>
+    </ul>
+    <strong>Details:</strong><br>
+    <ul>
+        <li>The <code>DoublyLinkedListImpl</code> class has two fields, head and tail, and should not contain a size field to store the number of elements.</li>
+        <li>The list is created by the default constructor, which initializes the head and tail fields to null.</li>
+        <li>The list cannot contain null elements. The add, remove, and set methods must throw a <code>NullPointerException</code> if they get null.</li>
+        <li>The remove method must use the equals method to find the occurrence of the object in the list.</li>
+        <li>The string representation of a list consists of all its elements separated by a space. For example, if a list contains three elements, o1, o2, and o3, the <code>toString</code> method returns "s1 s2 s3", where <code>s1=o1.toString()</code>, <code>s2=o2.toString()</code>, and <code>s3=o3.toString()</code>.</li>
+    </ul>
+    <strong>Restrictions:</strong><br>
+    You may not:<br>
+    <ul>
+        <li>Use any type from the <code>java.util</code> package or its subpackages except for <code>java.util.Optional</code></li>
+        <li>Add additional fields to the <code>DoublyLinkedListImpl</code> and <code>DoublyLinkedListImpl.Node</code> classes</li>
+        <li>Add any additional methods to the <code>DoublyLinkedListImpl.Node</code> class except constructors</li>
+    </ul>
+</details>
+
+### [New Post Office Storage](https://github.com/denys-taranenko/learn-java-basic-epam/tree/main/LearnJavaBasics/src/main/java/com/epam/java/basics/module_17_lists_and_queues/task_3_new_post_office_storage)
+<details>
+  <summary>Task</summary>
+  <p>
+    In this task, you will simulate the work of the New Post Storage service, which accepts parcels (boxes) and prepares them for distribution to New Post offices. The <code>Box</code> class describes a parcel with the following characteristics: <code>sender</code>, <code>recipient</code>, <code>weight</code>, <code>volume</code>, <code>cost</code>, <code>city</code>, and <code>office</code>. All characteristics are passed to the constructor to create an object. You must not change this class.<br>
+    The <code>NewPostOfficeStorage</code> interface has several methods that perform <code>add</code>, <code>delete</code>, <code>filter</code>, and <code>update</code> operations in a storage:<br>
+    <ul>
+        <li><code>boolean acceptBox(Box box)</code><br>
+           Appends the specified parcel to the end of this storage</li>
+        <li><code>boolean acceptAllBoxes(Collection&lt;Box&gt boxes)</code><br>
+          Appends to this storage all parcels that are contained in the specified collection. It must add either all the parcels or nothing, if an exception occurs</li>
+        <li><code>boolean carryOutBoxes(Collection&lt;Box&gt boxes)</code><br>
+          Removes from this storage all of its parcels that are contained in the specified collection</li>
+        <li><code>List&lt;Box&gt carryOutBoxes(Predicate&lt;Box&gt predicate)</code><br>
+          Removes from this storage all of its parcels that are satisfied the specified predicate</li>
+        <li><code>List&lt;Box&gt getAllWeightLessThan(double weight)</code><br>
+          Selects all parcels whose weight is less than the parameter value.</li>
+        <li><code>List&lt;Box&gt getAllCostGreaterThan(BigDecimal cost)</code><br>
+          Selects all parcels whose cost is greater than the parameter value.</li>
+        <li><code>List&lt;Box&gt getAllVolumeGreaterOrEqual(double volume)</code><br>
+          Selects all parcels whose volume is greater than or equal to the parameter value</li>
+        <li><code>List&lt;Box&gt searchBoxes(Predicate&lt;Box&gt predicate)</code><br>
+          Searches parcels using a predicate. This method does not change the original storage</li>
+        <li><code>void updateOfficeNumber(Predicate&lt;Box&gt predicate, int newOfficeNumber)</code><br>
+          Updates the <code>office</code> field in each box of this storage</li>
+    </ul>
+    Please, proceed to the <code>NewPostOfficeStorageImpl</code> that the implementor of <code>NewPostOfficeStorage</code> interface.<br>
+    Its highly recommended avoid indexed access to elements of a collection.<br>
+    The <code>Main</code> class is not under tests. You can use it for your own purposes.<br>
+    <strong>Restrictions:</strong><br>
+    <ul>
+        <li>Because the <code>Box</code> class does not have any identity field the implementation <strong>must not check uniqueness</strong> of <code>Box</code> instances.</li>
+        <li>Because the <code>NewPostOfficeStorage</code> describes business logic not a collection, an implementation <strong>must not extend</strong> any existing implementation of <code>List</code> interface or implement it internally <strong>but must aggregate</strong> it instead.</li>
+        <li>You should choose the best existing implementation of the <code>java.util.List</code> interface from the Java collection framework.</li>
+        <li>The implementation <strong>must not permit null values</strong> and must throw <code>NullPointerException</code> in such cases.</li>
+        <li>It is forbidden to use:</li><br>
+            <ul>
+                <li>lambda when you implement functional interfaces.</li>
+                <li><code>stream()</code>, <code>contains()</code>, <code>containsAll()</code> <code>indexOf()</code> methods of <code>List</code> interface.</li>
+                <li><code>for ( i )</code> loop (use a <code>foreach</code> loop or <code>Iterator</code> with a <code>while()</code> loop or the <code>foreach()</code> method instead).</li>
+            </ul>
+    </ul>
+</details>
