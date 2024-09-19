@@ -1121,3 +1121,97 @@ This document contains descriptions of various problems for practicing Java prog
             </ul>
     </ul>
 </details>
+
+---
+
+## Sets
+
+### [Ranged Ops Integer Set](https://github.com/denys-taranenko/learn-java-basic-epam/tree/main/LearnJavaBasics/src/main/java/com/epam/java/basics/module_18_sets/task_1_ranged_ops_integer_set)
+<details>
+  <summary>Task</summary>
+  <p>
+    In this task, you need to demonstrate how to work with a set of integers encapsulated in the <code>RangedOpsIntegerSet</code> class.<br>
+    Please proceed to the RangedOpsIntegerSet class and provide implementations of the following methods:<br>
+    <ul>
+      <li><code>boolean add(final Integer integer)</code><br>
+            Adds a single value to the set</li>
+      <li><code>boolean remove(final Object o)</code><br>
+            Removes a single value from the set</li>
+      <li><code>boolean add(int fromInclusive, int toExclusive)</code><br>
+            Adds a range of values to the set (first argument—inclusive; last argument—exclusive); returns true if range values were actually added</li>
+      <li><code>boolean remove(int fromInclusive, int toExclusive)</code><br>
+            Removes a range of values from the list (first argument—inclusive; last argument—exclusive); returns true if range values were actually removed</li>
+      <li><code>Iterator&lt;Integer&gt iterator()</code><br>
+            Returns an iterator to iterate over elements of the set in natural order</li>
+      <li><code>int size()</code><br>
+            Returns the number of current elements</li>
+    </ul>
+    <strong>Restrictions</strong><br>
+    You may not use lambdas or streams when implementing this task.
+</details>
+
+### [Project skills](https://github.com/denys-taranenko/learn-java-basic-epam/tree/main/LearnJavaBasics/src/main/java/com/epam/java/basics/module_18_sets/task_2_project_skills)
+<details>
+  <summary>Task</summary>
+  <p>
+    In this task, you will determine the percentage of compliance of a certain team with project requirements. In other words, you will determine if the team is suitable for the project.<br>
+    You have the following description:<br>
+    <ul>
+        <li>The <code>Position</code> enum defines a set of positions.</li>
+        <li>The <code>Skill</code> enum defines a set of skills.</li>
+        <li>The <code>Level</code> enum defines a set of skill levels.</li>
+        <li>The <code>Member</code> class defines a team member. Each member has a name, a level, and a set of skills (a collection of the <code>Set&lt;Skill&gt</code> type implemented as <code>EnumSet&lt;Skill&gt</code>). TThe team is described as a set of members in the form of <code>HashSet&lt;Member&gt</code>.</li>
+        <li>The <code>Role</code> class defines the role of the participant in the project. Each role has a level, a position, and required skills (a collection of the <code>Set&lt;Skill&gt</code> type implemented as an <code>EnumSet&lt;Skill&gt</code>).</li>
+        <li>The <code>Project</code> class defines the project and contains a description of it and a list of roles.</li>
+        <li>The <code>Project.Entry</code> class combines a skill and its level and is used in the algorithm for calculating the team's compliance with the project.</li>
+    </ul>
+    Now, please proceed to the <code>Member</code> class and implement its contents:<br>
+    <ul>
+        <li><code>public Member(String name, Level level, Skill... skills)</code><br>
+            Creates a member with the specified name, level, and skills</li>
+        <li><code>Getters</code><br>
+            Return values of the appropriate fields</li>
+    </ul>
+    Now, please proceed to the <code>Role</code> class and implement its contents:<br>
+    <ul>
+        <li><code>public Role(Position position, Level level, Skill... skills)</code><br>
+            Creates a role with the specified position, level, and skills</li>
+        <li><code>Getters</code><br>
+            Return values of the appropriate fields</li>
+    </ul>
+    Now, please proceed to the <code>Project</code> class and implement its contents:<br>
+    <ul>
+        <li><code>public Project(Role... roles)</code><br>
+            Creates a project with the specified roles</li>
+        <li>public List&lt;Role&gt getRoles()<br>
+            Returns a list of roles</li>
+        <li><code>public int getConformity(Set&lt;Member&gt team)</code><br>
+            Returns the percentage of team compliance with the project requirements</li>
+        <li><code>private static class Entry {}</code><br>
+            Describes an entry containing a level/skill pair</li>
+    </ul>
+    <strong>Details:</strong><br>
+    <ul>
+        <li>The <code>Entry</code> must implement the equals and <code>hashCode</code> methods. Two entries are considered equal if and only if they have the same skill and level.</li>
+        <li>To calculate the percentage of team compliance with project requirements, you must use the following algorithm:</li>
+        <ul>
+            <li>Generate a list of pairs <code>&lt;Level, Skill&gt</code> for the project's roles (e.g., named projectEntries).</li>
+            <li>Save the size of this list to a variable (e.g., originalSize).</li>
+            <li>Generate a list of pairs <code>&lt;Level, Skill&gt</code> for the team members (e.g., named teamEntries.</li>
+            <li>Remove common elements from both lists.</li>
+            <li>Calculate the compliance percentage as follows:</li>
+            <ul>
+                <li>Subtract the current size of the list of entries for the project roles from the originalSize variable</li>
+                <li>Multiply the difference by 100</li>
+                <li>Divide by the original size of the list of entries for the project roles</li>
+            </ul>
+        </ul>
+    </ul> 
+    <strong>Restrictions</strong><br>
+    You may not:<br>
+    <ul>
+        <li>Add extra fields to classes</li>
+        <li>Add extra methods to classes</li>
+        <li>Use lambdas or streams when implementing this task</li>
+    </ul>
+</details>
