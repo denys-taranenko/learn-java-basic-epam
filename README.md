@@ -1215,3 +1215,47 @@ This document contains descriptions of various problems for practicing Java prog
         <li>Use lambdas or streams when implementing this task</li>
     </ul>
 </details>
+
+---
+
+## Maps
+
+### [Books Catalog](https://github.com/denys-taranenko/learn-java-basic-epam/tree/main/LearnJavaBasics/src/main/java/com/epam/java/basics/module_19_maps/task_1_books_catalog)
+<details>
+  <summary>Task</summary>
+  <p>
+    In this task, you will simulate work with a book catalog. The catalog can be represented as the <code>TreeMap</code> collection, where the author is the key and the list of published books is the value. You have the following description:<br>
+    <ul>
+      <li>The <code>Author</code> class, which consists of the first and last name</li>
+      <li>The <code>Book</code> class, which consists of the title, genre, and cost</li>
+    </ul>
+    Since the book catalog is an ordered map, the <code>Author</code> and <code>Book</code> classes must implement the <code>Comparable</code> interface. The <code>BooksCatalog</code> class must have two constructors: a default one and one with a parameter that creates a map based on an existing map.<br>
+    Please proceed to the <code>Author</code> and <code>Book</code> classes and provide implementations of the <code>compareTo()</code> method.<br>
+    Please, proceed to the <code>BooksCatalog</code> class and provide implementations of the following methods:<br>
+    <ul>
+      <li><code>List&ltBook&gt findByAuthor(Author author)</code><br>
+            Returns a list of books by the specified author or <code>null</code> if there is no such author in the catalog</li>
+      <li><code>List&ltAuthor&gt findAuthorsByBook(Book book)</code><br>
+            Returns a list of the authors of the specified book or <code>null</code> if there is no such book in the catalog</li>
+      <li><code>String getAllAuthors()</code><br>
+            Returns a list of all the authors as a String</li>
+      <li><code>Set&ltBook&gt findBooksByGenre(String pattern)</code><br>
+            Returns a set of books of the specified genre or <code>null</code> if there are no books of this genre</li>
+      <li><code>Map&ltBook, List&ltAuthor&gt&gt findAuthorsByBookTitle(String pattern)</code><br>
+            Returns the book/author pair map. The search is carried out based on the words in the book's title</li>
+    </ul>
+    <strong>Details</strong><br>
+    <ul>
+        <li>To order the map by author, apply alphabetical order by first name and, if the names match, alphabetical order by last name.</li>
+        <li>To order the map by book title, apply alphabetical order by title and, if the titles match, by ascending cost.</li>
+        <li>The <code>findAuthorsByBookTitle</code> method searches for books based on a word pattern; it is case-insensitive.</li>
+        <li>The <code>findBooksByGenre</code> method searches for books of a certain genre specified as a search pattern; the matching pattern and name of the genre are case-insensitive; all the books found are sorted using natural ordering.</li>
+        <li>You can use a regular expression to match occurrences of a pattern in a book title or genre in the <code>findBooksByGenre</code> and <code>findAuthorsByBookTitle</code> methods.</li>
+        <li>The <code>getAllAuthors</code> method returns an alphabetical list of authors as a String, where the authors' names are separated by '\n'.</li>
+        <li>No methods of the <code>BooksCatalog</code> class accept <code>null</code>, and they must throw a <code>NullPointerException</code> if they do.</li>
+        <li>You can use the <code>getData()</code> method in the Util class to create the initial map.</li>
+        <li>You can add any private methods to the <code>BooksCatalog</code> class.</li>
+    </ul>
+    <strong>Restrictions</strong><br>
+    You may not use lambdas or streams when implementing this task.
+</details>
