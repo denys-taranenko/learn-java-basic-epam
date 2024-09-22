@@ -1259,3 +1259,78 @@ This document contains descriptions of various problems for practicing Java prog
     <strong>Restrictions</strong><br>
     You may not use lambdas or streams when implementing this task.
 </details>
+
+---
+
+## Collection Algorithms
+
+### [Student’s Gradebook](https://github.com/denys-taranenko/learn-java-basic-epam/tree/main/LearnJavaBasics/src/main/java/com/epam/java/basics/module_20_collection_algorithms/task_1_students_gradebook)
+<details>
+  <summary>Task</summary>
+  <p>
+    In this task, you will simulate the work of the student's gradebook. The internal structure of the gradebook is a collection of the <code>TreeMap</code> type where a key is an object of the <code>Student</code> type, the value is a <code>HashMap</code> whose key is the name of a discipline (an object of the <code>String</code> type), and the value is the grade (an object of the <code>BigDecimal</code> type).<br>
+    The <code>Student</code> class describes a student with the following characteristics: <code>first/last</code> name and <code>group</code>. All characteristics are passed to the constructor to create an object. <strong>You must not change this class</strong>.<br>
+    Now, please proceed to the <code>StudentsGradebookImpl</code> class, which implements the <code>StudentsGradebook</code> interface, and provide implementations of the following methods:<br>
+    <ul>
+      <li><code>public GradeBookImpl()</code><br>
+            Creates the gradebook object in which a <code>Comparator</code> is described to compare students</li>
+      <li><code>boolean addEntryOfStudent(Student student, String discipline, BigDecimal grade)</code><br>
+            Adds a student entry to the gradebook; returns true if the addition was successful, and false if not.</li>
+      <li><code>int size()</code><br>
+            Returns the number of students in the gradebook</li>
+      <li><code>Comparator&ltStudent&gt getComparator()</code><br>
+            Returns the <code>Comparator</code>, which is used to compare students</li>
+      <li><code>List&ltString&gt getStudentsByDiscipline(String discipline)</code><br>
+            Gets a list of strings with students' names and their grades for the specified disciplines in the format <code>"first_last name : grade"</code></li>
+      <li><code>Map&ltStudent, Map&ltString, BigDecimal&gt&gt removeStudentsByGrade(BigDecimal grade)</code><br>
+            Finds, removes, and returns from the gradebook students who have a grade below the specified one in any discipline<br>
+            If no such students are found, an empty map will be returned</li>
+      <li><code>Map&ltBigDecimal, List&ltStudent&gt&gt getAndSortAllStudents()</code><br>
+            Gets the gradebook as an ordered map where the key is the average grade and the value is a list of the <code>Student</code> type</li>
+    </ul>
+    <strong>Details</strong><br>
+    <ul>
+        <li>Since the <code>Student</code> objects are the keys to the gradebook, when you create the gradebook, you will need to declare the <code>Comparator</code> to compare objects of the <code>Student</code> type and pass it to the <code>TreeMap&ltStudent, Map&ltString, BigDecimal&gt&gt</code> constructor.</li>
+        <li>The grading scale for any discipline is in the range <code>[0 .. 5]</code>. The minimum passing grade is 3 points.</li>
+        <li>The <code>removeStudentsByGrade</code> method returns a map ordered by the <code>Student</code> type. To create the resulting map, you must use the <code>Comparator</code> applied in the gradebook constructor.</li>
+        <li>The <code>getAndSortAllStudents</code> method generates a gradebook based on the student's average grade. The average grade is indicated in increments of one tenth—for example, 3.1, 3.2, 3.3, etc.</li>
+        <li>It is guaranteed that the parameters passed to all methods are correct.</li>
+        <li>You can add any private methods to the <code>StudentsGradebookImpl</code> class.</li>
+    </ul>
+    <strong>Restrictions:</strong><br>
+    You may not use lambdas or streams to complete this task.
+</details>
+
+### [Maternity Hospital Journal](https://github.com/denys-taranenko/learn-java-basic-epam/tree/main/LearnJavaBasics/src/main/java/com/epam/java/basics/module_20_collection_algorithms/task_2_maternity_hospital_journal)
+<details>
+  <summary>Task</summary>
+  <p>
+    In this task, you will simulate the work of a weekly maternity hospital journal. The internal structure of the journal is a collection of the <code>Map</code> type, where the key is the weekday (an enum of the <code>WeekDay</code> type) and the value is a list of babies born during the week (objects of the <code>Baby</code> type).<br>
+    The <code>Baby</code> class describes a baby with the following characteristics: <code>name</code>, <code>weight</code>, <code>height</code>, <code>gender</code>, and <code>birth time</code>. All characteristics are passed to the constructor to create an object. <strong>You must not change this class</strong>.<br>
+    Please note that once a birth journal has been created and filled in, it cannot be changed. This needs to be guaranteed.<br>
+    Now, please proceed to the <code>BirthJournalManagementImpl</code> class, which implements <code>the BirthJournalManagement</code> interface, and provide implementations of the following methods:<br>
+    <ul>
+      <li><code>boolean addEntryOfBaby(WeekDay day, Baby baby)</code><br>
+            Adds an entry for the specified baby to the journal; returns true if the addition was successful and false if not</li>
+      <li><code>void commit()</code><br>
+            Makes the journal immutable</li>
+      <li><code>int amountBabies()</code><br>
+            Returns the number of babies born in a given week</li>
+      <li><code>List&ltBaby&gt findBabyWithHighestWeight(String gender)</code><br>
+            Finds the baby of the specified gender with the highest weight<br>
+            If there are multiple babies, it sorts them alphabetically by name.</li>
+      <li><code>List&ltBaby&gt findBabyWithSmallestHeight(String gender)</code><br>
+            Finds the baby of the specified gender with the smallest height<br>
+            If there are multiple babies, it sorts them in order of increasing weight</li>
+      <li><code>Set&ltBaby&gt findBabiesByBirthTime(String from, String to)</code><br>
+            Finds babies born in the specified time period</li>
+    </ul>
+    <strong>Details</strong><br>
+    <ul>
+        <li>Time of birth is given as a <code>String</code> in the form <code>"hour:minute"</code>.</li>
+        <li>For implementations of all methods, the parameters passed to them are guaranteed to be correct.</li>
+        <li>You can add any private methods to the <code>BirthJournalManagementImpl</code> class.</li>
+    </ul>
+    <strong>Restrictions:</strong><br>
+    You may not use lambdas or streams to complete this task.
+</details>
