@@ -1350,7 +1350,7 @@ This document contains descriptions of various problems for practicing Java prog
     <code>Issued by: &ltissuer&gt</code><br>
     <code>Issued on: &ltdate&gt</code><br>
     <code>Expires on: &ltdate&gt</code><br>
-    <code>---</code>
+    <code>---</code><br>
     The order of these properties is not restricted, so you may expect that <code>Expires</code> on might occur earlier than <code>License</code>. All of them are mandatory except for <code>Expires on</code>. The date format is ISO date <code>(yyyy-mm-dd)</code>. The license is wrapped between lines containing 3 dashes (<code>---</code>). The file always starts with license header, otherwise it's just a regular file.<br>
     If license header is invalid, then <code>IllegalArgumentException</code> must be thrown. If either <code>root</code> or <code>outputFile</code> is null, then <code>IllegalArgumentException</code> must be thrown. If <code>root</code> does not exist, or it's not readable, then the same exception must be thrown. And if <code>root</code> is a directory, but is not executable (means that it could not be entered), then <code>IllegalArgumentException</code> must be thrown.<br>
     The output format for just one license looks like:<br>
