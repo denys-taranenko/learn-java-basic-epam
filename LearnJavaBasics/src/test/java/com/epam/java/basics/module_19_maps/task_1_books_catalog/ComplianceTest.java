@@ -46,7 +46,7 @@ public class ComplianceTest {
     @BeforeAll
     static void init() {
         SpoonAPI spoon = new Launcher();
-        spoon.addInputResource("src/main/java/com/epam/java/basics/module_19_maps/task_1_books_catalog");
+        spoon.addInputResource("src/main/java");
         ctModel = spoon.buildModel();
     }
 
@@ -72,7 +72,7 @@ public class ComplianceTest {
 
     DescribedPredicate<JavaClass> haveNameBookCatalog = new DescribedPredicate<>("have name BookCatalog") {
         @Override
-        public boolean test(JavaClass javaClass) {
+        public boolean apply(JavaClass javaClass) {
             return javaClass.getName().equals(BooksCatalog.class.getName());
         }
     };
@@ -94,7 +94,7 @@ public class ComplianceTest {
     @ArchTest // no Iterable, List, Set, Map
     ArchRule ruleNoClassesShouldImplementAnyInterface = noClasses().should().implement(new DescribedPredicate<>("") {
         @Override
-        public boolean test(JavaClass javaClass) {
+        public boolean apply(JavaClass javaClass) {
             return !javaClass.getInterfaces().isEmpty();
         }
     });
