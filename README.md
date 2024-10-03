@@ -1334,3 +1334,71 @@ This document contains descriptions of various problems for practicing Java prog
     <strong>Restrictions:</strong><br>
     You may not use lambdas or streams to complete this task.
 </details>
+
+---
+
+## Introduction to I/O Streams
+
+### [License Reader](https://github.com/denys-taranenko/learn-java-basic-epam/tree/main/LearnJavaBasics/src/main/java/com/epam/java/basics/module_21_introduction_to_i_o_streams/task_1_license_reader)
+<details>
+  <summary>Task</summary>
+  <p>
+    In this task you will implement <code>LicenseReader#collectLicenses(File, File)</code> method. It must read all license files from <code>root</code>, format these licenses to a specific format and write all of them into <code>outputFile</code>. <code>root</code> might be a directory or just a regular file. Please note that you need to collect files not only from the root directory, but also from its subdirectories and their subdirectories, etc. All non-license files must be ignored. Be aware, that this method must not throw any checked exception.<br>
+    Take a look at the license header format:<br>
+    <code>---</code><br>
+    <code>License: &ltlicense name&gt</code><br>
+    <code>Issued by: &ltissuer&gt</code><br>
+    <code>Issued on: &ltdate&gt</code><br>
+    <code>Expires on: &ltdate&gt</code><br>
+    <code>---</code>
+    The order of these properties is not restricted, so you may expect that <code>Expires</code> on might occur earlier than <code>License</code>. All of them are mandatory except for <code>Expires on</code>. The date format is ISO date <code>(yyyy-mm-dd)</code>. The license is wrapped between lines containing 3 dashes (<code>---</code>). The file always starts with license header, otherwise it's just a regular file.<br>
+    If license header is invalid, then <code>IllegalArgumentException</code> must be thrown. If either <code>root</code> or <code>outputFile</code> is null, then <code>IllegalArgumentException</code> must be thrown. If <code>root</code> does not exist, or it's not readable, then the same exception must be thrown. And if <code>root</code> is a directory, but is not executable (means that it could not be entered), then <code>IllegalArgumentException</code> must be thrown.<br>
+    The output format for just one license looks like:<br>
+    <code>License for &ltfile name&gt is &ltlicense name&gt issued by &ltissuer&gt [&ltissuedOn date&gt - &ltexpiresOn date&gt]</code><br>
+    Each line must contain the information about license in this format. If license does not have an expiration date, then instead of <code>&ltexpiresOn date&gt - unlimited</code> must be used.<br>
+    If <code>outputFile</code> exists, then it must be cleared. So no appending is allowed.<br>
+<strong>Requirements</strong><br>
+    <ul>
+        <li><code>collectLicenses</code> method must verify that <code>root</code> is:</li>
+        <ul>
+            <li>not null</li>
+            <li>exists</li>
+            <li>readable</li>
+            <li>if it's a directory, then that it's executable</li>
+        </ul>
+        <li><code>collectLicenses</code> method must verify that <code>outputFile</code> is not null</li>
+        <li>if <code>outputFile</code> is not empty, then it must be cleared before writing to it</li>
+        <li>all files and directories of <code>root</code> must be processed</li>
+        <li>non-license files must be ignored</li>
+        <li>license files must be processed and info about it must be stored in <code>outputFile</code> (see formats in <code>Description</code> section)</li>
+        <li>if license format is invalid, or any verification is failed, then <code>IllegalArgumentException</code> must be thrown</li>
+        <li>all license properties are mandatory, except for <code>Expires on</code> (it's optional)</li>
+        <li>the order of license properties are undefined</li>
+        <li>the order in the resulting file does not matter</li>
+        <li>if <code>Expires on</code> is omitted, then in <code>unlimited</code> must be used</li>
+        <li><code>collectLicenses</code> does not throw any checked exception</li>
+        <li><code>BufferedWriter/BufferedReader</code> must be used for IO operations</li>
+        <li>All IO buffered streams must be defined using <code>try-with-resources</code> syntax</li>
+    </ul>
+</details>
+
+### [Cipher Creator](https://github.com/denys-taranenko/learn-java-basic-epam/tree/main/LearnJavaBasics/src/main/java/com/epam/java/basics/module_21_introduction_to_i_o_streams/task_2_%D1%81ipher_%D1%81reator)
+<details>
+  <summary>Task</summary>
+  <p>
+    You will implement an input stream to process data from the file. Please also implement a util class to check a file and return a ciphered text.<br>
+    Please implement methods in the CipherCreator.<br>
+    <ul>
+        <li><code>public static StringBuilder cipherText(File input)</code> - takes a file as an input and returns a ciphered text.</li>
+    </ul>
+    Please override methods in the TransformerInputStream class.<br>
+    <ul>
+        <li><code>public int read()</code> - reads the next data byte and returns a ciphered byte.</li>
+        <li><code>public void close()</code> - closes the stream and prints a message about it to the console.</li>
+    </ul>
+    Cipher key points:<br>
+    1. The text can only contain letters, and each word is written on a new line.<br>
+    2. Each letter of the ciphered text is shifted by two characters from the original one, case-sensitive. A -> C, f ->h.<br>
+    3. The alphabet is looped. It means Z -> B, y -> a.<br>
+    4. All other characters are ignored.<br>
+</details>
