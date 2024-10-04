@@ -1402,3 +1402,44 @@ This document contains descriptions of various problems for practicing Java prog
     3. The alphabet is looped. It means Z -> B, y -> a.<br>
     4. All other characters are ignored.<br>
 </details>
+
+---
+
+## Other I/O Streams
+
+### [Cars](https://github.com/denys-taranenko/learn-java-basic-epam/tree/main/LearnJavaBasics/src/main/java/com/epam/java/basics/module_22_other_i_o_streams/task_1_cars)
+<details>
+  <summary>Task</summary>
+  <p>
+    <strong>Car Domain</strong><br>
+    The Car class represents a car with some attributes:<br>
+    <ul>
+      <li>brand</li>
+      <li>model</li>
+      <li>cylinder capacity</li>
+      <li>performance</li>
+      <li>acceleration</li>
+    </ul>
+    <strong>Read CSV</strong><br>
+    The first part of the exercise is to read cars from a CSV (comma-separated values) file. The CSV file contains the car attributes in the same order as listed above.<br>
+    Implement the <code>CarCsvReader</code> class's <code>readCars(File file)</code> method to do the job.<br>
+    <ul>
+      <li>Read the file content line-by-line with <code>BufferedReader</code>. Then create a <code>Scanner</code> and configure it to use comma (,) as delimiter.</li>
+    </ul>
+    Input file example:<br>
+    <code>Toyota,Corolla,1599,75,6.8</code><br>
+    <code>Kia,Rio,1225,68,10.3</code><br>
+    <strong>Formatted Printing</strong><br>
+    Once the cars are in memory, print them to the console in the following way<br>
+    <ul>
+      <li>brand: 10 characters width</li>
+      <li>model: 10 characters width</li>
+      <li>cylinder capacity: 5 digits, add measurement unit: ccm</li>
+      <li>performance: 3 digits, add measurement unit: kw</li>
+      <li>acceleration: 5 digits, add measurement unit: sec</li>
+    </ul>
+    Implement the <code>FormattedCarPrinter</code> class's <code>print(List&ltCar&gt cars)</code> method.<br>
+    Output example, given the above list of cars:<br>
+    <code>    Toyota    Corolla  1599 ccm  75 kw  6.80 sec</code><br>
+    <code>       Kia        Rio  1250 ccm  68 kw 10.30 sec</code><br>
+</details>
