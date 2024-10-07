@@ -1443,3 +1443,36 @@ This document contains descriptions of various problems for practicing Java prog
     <code>    Toyota    Corolla  1599 ccm  75 kw  6.80 sec</code><br>
     <code>       Kia        Rio  1250 ccm  68 kw 10.30 sec</code><br>
 </details>
+
+---
+
+## The Interface Approach to Working With Files via NIO.2
+
+### [File Tree (NIO approach)](https://github.com/denys-taranenko/learn-java-basic-epam/tree/main/LearnJavaBasics/src/main/java/com/epam/java/basics/module_23_nio_2/task_1_file_tree)
+<details>
+  <summary>Task</summary>
+  <p>
+    You must implement a method to build a directory representation. You can also create other methods for convenience that will be called from the 'tree' method.<br>
+    Please implement methods in the FileTree class.<br>
+    <ul>
+      <li><code>public Optional&ltString&gt tree(final Path path)</code> - takes a path to a file/directory as an input parameter and builds a String representation of its hierarchy.</li>
+    </ul>
+    1. If a given path <i>does not exist</i>, return an empty Optional.<br>
+    2. If a given path <i>refers to a file</i>, return a String with its name and size like this:<br>
+    <code>some-file.txt 128 bytes</code><br>
+    3. If a given path <i>refers to a directory</i>, return a String with its name, total size and full hierarchy:<br>
+    <code>some-dir 100 bytes</code><br>
+    <code>├─ some-inner-dir 50 bytes</code><br>
+    <code>│  ├─ some-file.txt 20 bytes    </code><br>
+    <code>│  └─ some-other-file.txt 30 bytes</code><br>
+    <code>└─ some-one-more-file.txt 50 bytes</code><br>
+    <ul>
+      <li>Use pseudo-graphic characters to format the output.</li>
+      <li>Compute the size of a directory as a sum of all its contents.</li>
+      <li>Sort the contents in the following way:</li>
+        <ul>
+            <li>Directories should go first.</li>
+            <li>Directories and files are sorted in lexicographic order (case-insensitive)</li>
+        </ul>
+    </ul>
+</details>
