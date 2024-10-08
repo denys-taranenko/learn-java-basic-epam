@@ -1476,3 +1476,80 @@ This document contains descriptions of various problems for practicing Java prog
         </ul>
     </ul>
 </details>
+
+---
+
+## Serialization
+
+### [Serialization](https://github.com/denys-taranenko/learn-java-basic-epam/tree/main/LearnJavaBasics/src/main/java/com/epam/java/basics/module_24_serialization/task_1_serialization)
+<details>
+  <summary>Task</summary>
+  <p>
+    In this exercise, you need to implement the serialization of complex objects of the <code>Order</code> type. Below is a hierarchy of classes that describe orders.<br>
+    <strong>Classes to be serialized</strong><br>
+    The <code>Order</code> class represents an order:<br>
+    <ul>
+        <li><code>id</code></li>
+        A unique identifier of the order<br>
+        <li><code>total</code></li>
+        The cost of the order, which is automatically calculated and can only be read<br>   
+        <li><code>items</code></li>
+        A map that stores products (a ke y is an object of the <code>Item</code> type) and the number of units to be purchased (a value is a variable of the <code>int</code> type)<br>
+    </ul>
+    The <code>Item</code> class represents a product:<br>
+    <ul>
+        <li><code>id</code></li>
+        A unique identifier of the product<br>
+        <li><code>name</code></li>
+        The name of the product<br>   
+        <li><code>description</code></li>
+        A short description of the product<br>
+        <li><code>characteristics</code></li>
+        A list of product features (objects of the <code>ItemCharacteristic</code> type)<br>
+    </ul>
+    The abstract class <code>ItemCharacteristic</code> represents one characteristic of a product and is the supertype for different types of product characteristics:<br>
+    <ul>
+        <li><code>id</code></li>
+        A unique identifier of the characteristic<br>
+        <li><code>name</code></li>
+        The name of the characteristic<br>   
+        <li><code>type</code></li>
+        A data type of the characteristic (It can be <code>String</code>, <code>Integer</code>, <code>Double</code>, etc.)<br>
+    </ul>
+    The <code>IntItemCharacteristic</code> class represents an integer characteristic and inherits the <code>ItemCharacteristic</code> class:<br>
+    <ul>
+        <li><code>value</code></li>
+        Keeps a value of the characteristic<br>
+    </ul> 
+    The <code>DoubleItemCharacteristic</code> class represents a numeric characteristic and inherits the <code>ItemCharacteristic</code> class:<br>
+    <ul>
+        <li><code>value</code></li>
+        Keeps a value of the characteristic<br>
+    </ul>
+    <strong>Class which performs serialization / deserialization</strong><br>
+    The <code>OrderSerializer</code> class serializes and deserializes objects of the <code>Order</code> class:<br>
+    <ul>
+        <li><code>public static void serializeOrder(Order order, OutputStream out) throws IOException</code></li>
+        Serializes a specified object of the Order class into the given data output stream<br>
+        <li><code>public static Order deserializeOrder(InputStream in) throws IOException, ClassNotFoundException</code></li>
+        Deserializes a specified object of the <code>Order</code> class from the given data input stream<br>
+    </ul>    
+    <strong>Details:</strong><br>
+    <ul>
+        <li>Each entity class must contain a constructor that accepts values for all fields and can contain any other constructors if necessary.</li>
+        <li>All entity classes must have getters and setters for all fields.</li>
+        <li>All entity classes must contain an overridden <code>equals()</code> method by all fields.</li>
+        <li>The <code>ItemCharacteristic</code> class must be <code>abstract</code> and must not implement the <code>Serializable</code> interface.</li>
+        <li>When calculating the cost of an order in the <code>Order</code> class, set the <code>total</code> field value using the following algorithm:</li>
+        <ul>
+            <li>If the <code>total</code> field is <code>null</code> and the <code>items</code> field is not <code>null</code>, then a call of the <code>getTotal()</code> method must calculate the <code>total</code> value.</li>
+            <li>If the <code>items</code> field is <code>null</code>, the <code>total</code> must be zero.</li>
+            <li>It is guaranteed that the internal state of the <code>items</code> field will not change after being installed in the object.</li>
+        </ul>
+        <li>The custom serialization mechanism must be implemented in all descendants of the <code>ItemCharacteristic</code> class because it is not serializable</li>
+    </ul>
+    <strong>Restrictions:</strong><br>
+    <ul>
+        <li>You may not use the serialization mechanism with the <code>Externalizable</code> interface.</li>
+    </ul>
+</details>
