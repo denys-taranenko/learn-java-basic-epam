@@ -3594,3 +3594,150 @@ Accepts `BigInteger rentThreshold`.
 5. The coefficient is calculated as `max(100, 100 * rent / threshold)`.
 6. If any of the conditions are not met, `Optional.empty` must be returned.
 </details>
+
+---
+
+## Stream API
+
+### [Stream API basics](https://github.com/denys-taranenko/learn-java-basic-epam/tree/main/LearnJavaBasics/src/main/java/com/epam/java/basics/module_26_stream_api/task_1_stream_api_basics)
+<details>
+  <summary>Task</summary>
+
+The purpose of this exercise is to train you in usage of Java Stream API in basic level.
+
+Estimated workload of this exercise is _30 minutes_.
+
+### Description
+
+MovieQueries class is responsible to perform different queries on a list of movie titles.
+Please implement `MovieQueries` constructor and methods according to the following method definitions.
+Please do not change method names, arguments, or return type of the methods:
+
+| Method name                                    | Description                                                                                               |
+|------------------------------------------------|-----------------------------------------------------------------------------------------------------------|
+| `getNumberOfMovies`                            | Count the elements in the movie list.                                                                     |
+| `getNumberOfMoviesThatStartsWith`              | Count the elements that start with given parameter.                                                       |
+| `getNumberOfMoviesThatStartsWithAndEndsWith`   | Count the elements that start and end with the given parameters.                                          |
+| `getLengthOfTitleOfMovies`                     | Count the length of all movie titles.                                                                     |
+| `getNumberOfLettersInShortestTitle`            | Return the length of the shortest movie title.<br/>Throw `IllegalArgumentException` if the list is empty. |
+| `getFirstTitleThatContainsThreeWords`          | Return the first movie title that contains three words.                                                   |
+| `getFirstFourTitlesThatContainAtLeastTwoWords` | Return the first four (and only four) movie title that contains at least 2 words.                         |
+| `printAllTitleToConsole`                       | Print all movie titles to the console.                                                                    |
+
+`MovieQueries` constructor must throw `IllegalArgumentException` if the parameter is null.
+
+In this exercise use Stream API, do not implement `for` loop, `while` loop or any other imperative approach.
+
+### Examples
+
+Having the following test data:
+
+```
+"Terminator", "Blade Runner", "Star Wars", "Indiana Jones", "Friends",
+"The Magnificent Seven", "The Dark Knight", "The Lord of the Rings: The Return of the King",
+"Pulp Fiction"
+```
+
+- `getNumberOfMoviesThatStartsWith` called with parameter `"The"`, returns 3.
+- `getFirstTitleThatContainsThreeWords` returns `"The Magnificent Seven"`
+
+### The Application
+
+The `Application` class is already implemented, which delegates
+the querying task to `MovieQueries` class.
+</details>
+
+### [Stream API intermediate](https://github.com/denys-taranenko/learn-java-basic-epam/tree/main/LearnJavaBasics/src/main/java/com/epam/java/basics/module_26_stream_api/task_2_stream_api_intermediate)
+<details>
+  <summary>Task</summary>
+
+The purpose of this exercise is to practice Java Stream API at intermediate level.
+The data model is similar to the previous exercise, movie. In this exercise the model is based on movies, but more complex.
+
+Estimated workload of this exercise is _90 minutes_.
+
+
+## Movie Data Model
+
+The stream operations are defined on movie data. There are two domain model classes: `Movie` and `Person`.
+`Person` can be the director, writer or cast of the movie..
+
+Person example:
+
+```
+name: Arnold Schwarzenegger
+date of birth: July 30, 1947
+biography: With an almost unpronounceable surname and a thick Austrian accent
+```
+
+Movie example:
+
+```
+title: The Terminator
+description: A human soldier is sent from 2029 to 1984 to stop an almost indestructible cyborg killing machine.
+genres: ACTION, SCI_FI
+length: 107 (minutes)
+release year: 1984
+directors: James Cameron
+writers: James Cameron, Gale Anne Hurd, William Wisher
+casts: Arnold Schwarzenegger, Linda Hamilton, Michael Biehn
+```
+Note: directors, writers and casts fields are collections that hold Person reference.
+
+
+## Description
+
+`MovieQueries` class is responsible to perform different queries on a list of movies.
+Please implement `MovieQueries` constructor and methods according to the following method definitions.
+Please do not change method names, arguments, or return type of the methods:
+
+| Method name                                                        | Description                                                                                     |
+|--------------------------------------------------------------------|-------------------------------------------------------------------------------------------------|
+| `checkGenreOfAllMovies`                                            | Check that all the movies in the list belongs to the given genre.                               |
+| `checkGenreOfAnyMovies`                                            | Check that at least one movie in the list belongs to the given genre.                           |
+| `checkMovieIsDirectedBy`                                           | Check that at least one movie in the list is directed by the given person.                      |
+| `calculateTotalLength`                                             | Calculate the total length of all the movies in the list.                                       |
+| `moviesLongerThan`                                                 | Count the movies that are longer then the given parameter.                                      |
+| `listOfWriters`                                                    | Return the writers of all movies. One writer appear only once in the list.                      |
+| `movieTitlesWrittenBy`                                             | Return the titles of movies that are written by the given person.                               |
+| `listOfLength`                                                     | Return a list of the length of movies.                                                          |
+| `longestMovie`                                                     | Find the longest movie.<br/>Throws `IllegalArgumentException` if the movies list is empty.      |
+| `oldestMovie`                                                      | Find the oldest movie.<br/>Throws `IllegalArgumentException` if the movies list is empty.       |
+| `sortedListOfMoviesBasedOnReleaseYear`                             | Return a sorted list of movies based on their release year.                                     |
+| `sortedListOfMoviesBasedOnTheDateOfBirthOfOldestDirectorsOfMovies` | Return a sorted list of movies based on the date of birth of the oldest director of each movie. |
+| `moviesReleasedEarlierThan`                                        | Return a list of all the movies which are released earlier than the given year (inclusively).   |
+
+`MovieQueries` constructor must throw `IllegalArgumentException` if the passed parameter is null.
+
+In `MovieQueries` implementation you can expect that the `Movie` and related `Person` objects passed as arguments are all valid,
+each field is populated with non-null values. No need to validate them.
+
+Use only Java Stream API.
+
+
+## Examples
+
+Having the following movies:
+
+```
+The Terminator
+genres: ACTION, SCI_FI
+
+Blade Runner
+genres: ACTION, SCI_FI, DRAMA
+
+Indiana Jones
+genres: ACTION, ADVENTURE
+```
+
+- `checkGenreOfAllMovies(Genre.SCI_FI)` returns false
+- `checkGenreOfAnyMovies(Genre.SCI_FI)` returns true
+
+
+## The Application
+
+The `Application` class is already implemented, which delegates the querying task to `MovieQuery` class.
+You can find the models in `model` package.
+`MovieDataStore` builds test data and provide them to the application.
+Classes in `builder` package helps to create models.
+</details>
